@@ -4,13 +4,16 @@ page-googlemap-modal {
 		width: 100%;
 		height: 100%;
 		background-color: rgba(0,0,0,0.2);
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		.map-top {
+			display: block;
+			width: 100%;
+			height: 30vh;
+		}
 		#map {
 			display: block;
 			background-color: white;
 			border-radius: 3vw;
+			margin-left: 5vw;
 			width: 90vw;
 			height: 40vh;
 		}
