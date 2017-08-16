@@ -1,6 +1,6 @@
 import { NgModule }                          from '@angular/core';
 import { IonicApp, IonicModule} from 'ionic-angular';
-import { TagInputModule } from "ng2-tag-input";
+import { TagInputModule } from "ngx-chips";
 import { CommonModule } from '@angular/common';
 /* Modules */
 import { BrowserModule } from '@angular/platform-browser';

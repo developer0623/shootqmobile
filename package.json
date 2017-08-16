@@ -1,7 +1,6 @@
 {
   "name": "shootq",
   "version": "0.0.1",
-  "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -56,10 +55,9 @@
     "ionicons": "3.0.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
-    "mx.ferreyra.callnumber": "~0.0.2",
     "ng-dynamic": "^3.0.2",
     "ng2-file-upload": "1.1.2",
-    "ng2-tag-input": "^1.4.1",
+    "ngx-chips": "^1.5.2",
     "ngx-mydatepicker": "0.0.7",
     "parse-address": "0.0.6",
     "rrule": "^2.2.0",
