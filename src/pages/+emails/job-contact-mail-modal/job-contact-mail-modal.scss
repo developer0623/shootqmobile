@@ -1,0 +1,63 @@
+page-job-contact-mail{
+	// background: rgba(0, 0, 0, 0.5);
+	background: transparent;
+	.modal-content{
+		padding: 10px;
+		width: 100%;
+		text-align:center;
+
+		.modal-header{
+			text-align: center;
+		}
+		.modal-icon{
+			color: #3a405b;
+			width: 50px;
+			height: 50px;
+			margin: 20px auto;
+			border-radius: 50%;
+			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			ion-icon{
+				font-size: 30px;
+				font-weight: bold;
+			}
+		}
+
+		.show-list-numbers-and-dots{
+			padding: 0 10px;
+			p{
+				font-size: 15px;
+				line-height: 1.6;
+			}
+		}
+
+		.modal-button{
+			width: 75%;
+			background: #292e42;
+			margin: 12px auto;
+			height: 4rem;
+			border-radius: 5px;
+		}
+
+		.cancel-button{
+			background: transparent;
+			color: #b6c1cf;
+			box-shadow: none;
+		}
+	}
+
+	.job-contact-modal{
+        width: 90%;
+        height: 385px;
+        top: 15vh;
+    	left: 5%;
+    	border-radius: 6px;
+
+
+    }
+	
+
+}

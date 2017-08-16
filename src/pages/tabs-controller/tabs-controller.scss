@@ -1,0 +1,57 @@
+page-tabs-controller {
+	#tabsController-tabs1{
+		.tabbar{
+			background: transparent;
+		}
+	}
+	#tab-t0-2{
+		min-height: 49px;
+		margin-top: -2.5vw;
+		// padding-top: 3vw;
+		ion-icon{
+			border: 2px solid $title-font-color;
+			border-radius: 2vw;
+			height: 8vw !important;
+			width: 8vw !important;
+			min-height: 35px;
+			min-width: 35px;
+			color: $title-font-color;
+			// padding: 0 2vw;
+			// margin-top: -3vw;
+			font-weight: bold;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		ion-icon:before{
+			font-size: 9vw;
+		}
+	}
+
+	.tab-button {
+		font-size: 3.3vw !important;
+		ion-icon{
+			font-size : 7vw !important;
+			height: 7vw;
+		}
+	}
+	.tabs-ios .tab-button-icon{
+		height: 7vw;
+	}
+
+	.has-icon .tab-badge {
+		font-size: 3.5vw;
+		// height: 5vw;
+		// width: 5vw;
+		border-radius: 50%;
+    	right: calc(50% - 4vw);
+    	right: -webkit-calc(50% - 4vw);
+    	width: 4vw;
+	    height: 4vw;
+	    display: flex;
+	    display: -webkit-flex;
+	    align-items: center;
+	    justify-content: center;
+	}
+
+}

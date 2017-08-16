@@ -1,0 +1,31 @@
+<ion-content id="page2" >
+  <div class="spacer" id="login-spacer1"></div>
+  <div class='logo-img'>
+    <img src="assets/login/shootq-logo.png"/>
+  </div>
+  <p id="login-heading1">
+    Welcome back!
+  </p>
+  <form id="login-form">
+    <ion-item color="none" id="login-list-item2">
+      <!-- <ion-avatar item-left>
+        <img src='assets/login/user-icon.png'/>
+      </ion-avatar> -->
+      <ion-icon name="person" item-left></ion-icon>
+      <ion-input type="text" placeholder='username' [(ngModel)] ='user.username' [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <ion-item color="none" id="login-list-item4">
+      <!-- <ion-avatar item-left>
+        <img src='assets/login/lock-icon.png'/>
+      </ion-avatar> -->
+      <ion-icon name="lock" item-left></ion-icon>
+      <ion-input type="password" placeholder='password' [(ngModel)] ='user.password' [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <button id="login-button1" ion-button block (click)="login()">
+      LOGIN
+    </button>
+    <button id="login-button2" ion-button clear small (click)="gotoResetPass()">
+      Forgot Password
+    </button>
+  </form>
+</ion-content>

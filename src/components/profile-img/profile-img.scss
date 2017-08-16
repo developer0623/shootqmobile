@@ -1,0 +1,52 @@
+profile-img, contact-img {
+	z-index: 100;
+	.img-div{
+		display: flex;
+		justify-content: center;
+		position: relative;
+		border-radius : 50%;		    
+		background: #fff;
+		align-items:center;
+		width: 100%;
+		height: 100%;
+		// overflow: hidden;
+		p{
+			font-size: $content-big-font;
+			font-weight: bold;
+			color: #b5c1cf;
+			margin: 0px !important;
+		}
+		
+		.image-container{
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			position: relative;
+			z-index: 10;
+			overflow: hidden;
+			img {
+				height: 100%;
+				max-width: 200% !important;
+				position: absolute;
+			    top: 50%;
+			    left: 50%;
+			    transform: translateX(-50%) translateY(-50%);
+			}
+		}
+	}
+
+	.img-div:after{
+		content: '';
+		position: absolute;
+		top: -1px; bottom: -1px; right: -1px;
+		left: -1px;
+		background-image: linear-gradient(135deg, #e75050, #f7ae18);
+		background-image: -webkit-linear-gradient(135deg, #e75050, #f7ae18);
+		z-index: -1; border-radius: inherit;
+	}
+}
+
+
+navbar-profile-img {
+
+}

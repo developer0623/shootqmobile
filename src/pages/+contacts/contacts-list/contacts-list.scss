@@ -1,0 +1,120 @@
+page-contacts-list {
+	.toolbar-content{
+		color: $title-font-color;
+		font-size: $content-big-font;
+		font-weight: bold;
+	}
+	.main-content{
+		padding: 16px 0px !important; 
+		// .scroll-content {
+		//     padding: 16px 0px !important;
+		// }
+	}
+	.contact-header{
+		background-color: transparent;
+		.item-inner{
+		text-align: center;
+			border-bottom: 0px !important;
+		}
+	}
+	ion-label{
+		color: $title-font-color;
+		font-weight: 600;
+		font-size: $content-big-font;
+		margin: 0px !important;
+	}
+
+	.contact-list-item {
+		.input-wrapper{
+			border-bottom: 1px solid rgba(58, 64, 91, 0.1);
+		}
+		
+		.contact-list-title {
+			color: $title-font-color;
+			font-size: $content-medium-font;
+			font-weight: normal;
+
+		}
+
+		.contact-list-content{
+			color: #8f8f8f;
+			font-size: $content-small-font;
+			font-weight: normal;
+		}
+	}
+
+	.sub-content{
+		.scroll-content {
+		    padding: 0px !important;
+		}
+	}
+	.ion-alpha-list-outer div div:last-child{
+		.input-wrapper{
+			border-bottom: 0px solid rgba(58, 64, 91, 0.1);
+		}
+	}
+	// ion-alpha-scroll{
+	// 	ion-scroll{
+	// 		margin-top: 30px;
+	// 		margin-bottom: 0px;
+	// 		height: calc(100vh - 130px) !important;
+	// 		height: -webkit-calc(100vh - 130px) !important;
+	// 	}
+	// }
+
+	// .ion-alpha-sidebar{
+	// 	margin-top: 70px;
+	// 	height: calc(100vh - 160px) !important;
+	// 	height: -webkit-calc(100vh - 160px) !important;
+	// }
+
+	.search-list-contacts {
+		.contact-list-title {
+			color: $title-font-color;
+			font-size: $content-medium-font;
+			font-weight: normal;
+
+		}
+
+		.contact-list-content{
+			color: #8f8f8f;
+			font-size: $content-small-font;
+			font-weight: normal;
+		}
+	}
+
+
+	.job-search{
+		.input-search{
+			background-color: transparent !important;
+			border-bottom: 0px solid #E4E8F0 !important;
+			width: 80%;
+			float: left;
+			.searchbar-search-icon {
+					display: none;
+			}
+			input{
+				font-size: $content-medium-font;
+				padding-left: 20px !important;
+				color: $title-font-color;
+
+			}
+
+			.searchbar-clear-icon{
+				display: none !important;
+			}
+			
+		}
+
+		.cancel-button{
+			text-transform: lowercase;
+			float: right;
+			background-color: transparent;
+			font-size : $content-medium-font;
+			color: $title-font-color;
+			font-weight: normal;
+			padding-left: 0px !important; padding-right: 0px !important;
+		}
+	}
+
+}

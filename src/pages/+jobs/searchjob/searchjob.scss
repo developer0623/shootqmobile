@@ -1,0 +1,65 @@
+page-searchjob {
+	ion-content{
+		padding: 16px 0px !important; 
+		.scroll-content {
+		    padding: 16px 0px !important;
+		}
+	}
+	.job-search{
+		.input-search{
+			background-color: transparent !important;
+			border-bottom: 0px solid #E4E8F0 !important;
+			width: 70%;
+			float: left;
+			.searchbar-search-icon {
+					display: none;
+			}
+			input{
+				font-size: 15px;
+				padding-left: 20px !important;
+				color: $title-font-color;
+
+			}
+
+			.searchbar-clear-icon{
+				display: none !important;
+			}
+			
+		}
+
+		.cancel-button{
+			float: right;
+			background-color: transparent;
+			font-size : 14px;
+			color: $title-font-color;
+		}
+	}
+
+	.recent-jobs{
+		margin-top: 60px;
+		width: 100%;
+
+		.recent-title{
+			font-size: 18px;
+			color: rgba(58, 64, 91, 0.5);
+			font-weight : 600;
+			margin-left: 15px;
+		}
+
+		.recent-no-job{
+			font-size: 21px;
+			text-align: center;
+			margin-top: 25vh;
+			margin-left: 20%;
+			color: rgba(58, 64, 91, 0.5);
+			font-weight : 600;
+			width: 60%;
+
+		}
+	}
+
+	.search-list-jobs{
+		width: 100%;
+	}
+
+}

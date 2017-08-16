@@ -1,0 +1,24 @@
+<ion-content padding id="page5">
+	<ion-item class="new-contact-header">
+            <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>
+            
+              Associate Task to a Job
+            
+  </ion-item>
+
+  	<div class="job-search">       
+      <ion-searchbar placeholder="Search Jobs" name="" (ionInput)='onInput($event)' [(ngModel)] ='searchData' [ngModelOptions]="{standalone: true}"  class="input-search"></ion-searchbar>
+      <button ion-button class="cancel-button" (click)="cancelSearch()">Cancel</button>
+    </div>
+
+    <ion-list>
+      <job-item *ngFor="let job of jobs" [job]="job" [itemType]= 'true' (onClickItem)="gotoJobDetail($event)" >
+          
+      </job-item>
+    </ion-list>
+  
+
+
+
+
+</ion-content>

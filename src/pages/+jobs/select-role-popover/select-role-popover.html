@@ -1,0 +1,6 @@
+<ion-scroll>
+  <ion-list>
+  	<ion-list-header>Select a Role</ion-list-header>
+  	<button ion-item (click)="onSelectRole(role)" *ngFor="let role of roles">{{role.name}}</button>
+  </ion-list>
+</ion-scroll>

@@ -1,0 +1,50 @@
+$fontcolor : #3A405B;
+page-slide {
+
+	.slide-zoom{
+		text-align: center;
+	}
+
+	.slide-image {
+		width: 75%;
+		max-width: 500px;
+	}
+	.slide-right{
+		position: absolute;
+		right: -70%;
+	}
+
+	.slide-title {
+		font-weight: bold;
+		color: $fontcolor;
+		font-size: $title-medium-font;
+	}
+
+	.slide-content {
+		color: $fontcolor;
+		font-size: $content-medium-font;
+		line-height: $title-medium-font;
+		width: 80%;
+		margin: auto;
+	}
+
+	.slide-content-white{
+		color: transparent;
+	}
+
+	.slide-continue-bt{
+		width: 100%;
+		position:fixed;
+		bottom : 0px;
+		left: 0px;
+		max-height: 80px;
+		height: 12vw;
+		background-color: #2A2E42;
+		z-index: 100;
+		color: white;
+		font-size: $content-medium-font;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+}

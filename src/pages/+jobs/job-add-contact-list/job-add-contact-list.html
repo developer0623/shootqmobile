@@ -1,0 +1,35 @@
+
+<ion-content class="main-content">
+  <ion-item class="modal-header">
+    <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>            
+        Add an Existing Contact
+    <button ion-button (click)="onClickDone()" class="right-button" item-right>
+        Done
+    </button>
+  </ion-item>
+  <div class="job-search">
+      <ion-searchbar placeholder="Search Contacts" name="" (ionInput)='onInput($event)' [(ngModel)] ='searchData' [ngModelOptions]="{standalone: true}"  class="input-search"></ion-searchbar>
+      <button ion-button class="cancel-button" (click)="cancelSearch()">Cancel</button>
+  </div>
+  <div class="selected-contacts-list">
+    <add-contact-item [contact] = 'contact' (removeContact)="unsetSelected(contact)" *ngFor="let contact of selectedContacts"></add-contact-item>
+  </div>
+
+  <ion-content  [ngStyle]="calculateScrollDimensions()" class="sub-content">
+    <ion-alpha-scroll *ngIf="contacts && !searchData"
+        [listData]="contacts"
+        key="last_name"
+        [itemTemplate]="alphaScrollItemTemplate"
+        [currentPageClass]="currentPageClass"
+        [triggerChange]="triggerAlphaScrollChange">
+    </ion-alpha-scroll>
+  
+
+    <ion-list *ngIf="searchData" class="search-list-contacts">
+        <ion-item  class="job-item" *ngFor="let item of searchedcontacts" (click) = "onClickItem(item)">
+        <p class="contact-list-title">{{item.full_name}}</p>
+        <p class="contact-list-content">Client</p>            
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-content>

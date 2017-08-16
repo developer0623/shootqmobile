@@ -1,0 +1,67 @@
+
+<ion-content padding>
+<ion-item class="new-contact-header" *ngIf="isLoading">
+            <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>
+            {{editFlag? 'Edit an Event Group': 'Create an Event Group'}}            
+</ion-item>
+  	<form  [formGroup]="form" *ngIf="isLoading">
+	    <ion-item>
+	      <ion-label stacked [ngClass]="{'val-required': validFlags && form.controls.name.errors}">Name<span class="icon-required">*</span></ion-label>
+	      <ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
+	    </ion-item>
+	    <ion-item>
+	      <ion-label stacked>Location Name</ion-label>
+	      <ion-input type="text" placeholder="Location Name" formControlName="location_name"></ion-input>
+	    </ion-item>
+
+	    <div class="address-item">		    
+			    <div class="address-label">Location</div>
+			    <input type="text" class="address-input"   (setAddress)="getAddress($event)" googleplace  formControlName="address"/>
+		</div>
+
+		<ion-item>
+		      <ion-label stacked>Select Event Type</ion-label>
+		      <ion-select name="" placeholder='Select Event Type' interface='popover' formControlName="event_type">
+		        <ion-option *ngFor="let type of eventTypes" value='{{type.id}}'>{{type.name}}</ion-option>
+		      </ion-select>
+		</ion-item>
+
+		<ion-item>
+		      <ion-label stacked>Duration</ion-label>
+		      <ion-select name="" placeholder='Duration' interface='popover' formControlName="all_day">
+		        <ion-option value='{{true}}'>All Day</ion-option>
+		      </ion-select>
+		</ion-item>
+
+		<div class="date-wrapper">
+			    <ion-item>
+			      <ion-label stacked [ngClass]="{'val-required': validFlags && form.controls.start.errors }">Start<span class="icon-required">*</span></ion-label>
+			      <ion-input *ngIf="startDate" value = "{{startDate | date: 'medium'}}"></ion-input>
+			    </ion-item>
+			    <button class="date-button" (click)="onClickStart()"></button>
+		</div>
+
+		    <div class="date-wrapper">
+			    <ion-item>
+			      <ion-label stacked [ngClass]="{'val-required': validFlags && form.controls.start.errors }">End<span class="icon-required">*</span></ion-label>
+			      <ion-input *ngIf = "endDate" value = "{{endDate | date: 'medium'}}"></ion-input>
+			    </ion-item>
+			    <button class="date-button" (click)="onClickEnd()"></button>		    	
+		    </div>
+		    
+			<button (click)="onSave()" class="save-bt">SAVE</button>
+  </form>
+
+  <group-events [eventgroup]="eventGroup"
+      *ngIf="eventGroup.start && eventGroup.end">></group-events>
+</ion-content>
+
+
+
+
+
+
+
+
+
+

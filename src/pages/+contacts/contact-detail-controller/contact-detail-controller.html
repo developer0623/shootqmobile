@@ -1,0 +1,119 @@
+<ion-header class="custom-contact-header">
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only class="navbar-back-icon" (click)="onClickBack()">
+        <ion-icon name="ios-arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <div class="custom-header-img">
+      <profile-img src="{{contact.avatar_url}}" *ngIf="!profileEditFlag"></profile-img>
+      <!-- <profile-img src="{{contact.avatar_url}}"></profile-img> -->
+    </div>
+    <!-- <ion-title>
+      <profile-img src="{{contact.avatar_url}}" *ngIf="!profileEditFlag"></profile-img>
+      <profile-img src="{{contact.avatar_url}}"></profile-img>
+    </ion-title> -->
+    <ion-buttons end>
+      <button ion-button (click)="onClickEdit()" class="navbar-edit-button">
+        Edit
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+
+</ion-header>
+<ion-content>
+  <div class="contact-content" *ngIf="!profileEditFlag" (click)="onClickProfileImg()">
+    <p class="contact-name">{{contact.fullName}}</p>
+  </div>
+  
+  <div class="contact-content1" *ngIf="profileEditFlag && authorized" >
+    <ion-row>
+      <ion-col (click)="onClickProfileImg()"></ion-col>
+      <ion-col col-auto>
+        <div class="img-div">
+          <label>
+            <img src="{{contact.avatar_url}}" *ngIf="contact.avatar_url"/>
+            <ion-icon class="profile-img-icon" name="md-add" *ngIf="!contact.avatar_url"></ion-icon>
+            <input type="file" ng2FileSelect style="display: none"
+                                 accept="image/x-png, image/png, image/jpeg"
+                                 [uploader]="uploader" (change)="onFileChange($event)" />
+          </label>
+        </div>    
+      </ion-col>
+      <ion-col (click)="onClickProfileImg()"></ion-col>
+      
+    </ion-row>
+      
+    <div (click)="onClickProfileImg()">
+      <p class="contact-name">{{contact.fullName}}</p>
+    </div>
+  </div>
+  <div class="contact-events">    
+    <button ion-button icon-only class="button-items">
+      <ion-icon name="ios-chatbubbles-outline"></ion-icon>
+    </button>
+    <button ion-button icon-only class="button-items" (click)="openPhoneCall()">
+      <ion-icon name="ios-phone-portrait"></ion-icon>
+    </button>           
+    <button ion-button icon-only class="button-items" (click)="openEmailModal()">
+      <ion-icon name="ios-mail-outline"></ion-icon>
+    </button>
+  </div>
+
+  <ion-segment [(ngModel)] = "segmentname" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="jobs">
+        JOBS & ACTIVITY
+      </ion-segment-button>
+      <ion-segment-button value="note">
+        NOTES
+      </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="selectedSegment" *ngIf="isLoading">
+    <div class="segment-content segment-jobs" *ngSwitchCase="'jobs'" >
+      <ion-list>
+        <p class="ass-job-title" *ngIf="contactJobs.length>0">Associated Job(s)</p>
+        <ass-job-item *ngFor="let job of contactJobs" [job]="job" >
+            
+        </ass-job-item>
+      </ion-list>
+    </div>
+
+
+    <div class="segment-content segment-note" *ngSwitchCase="'note'">
+      <ion-list *ngIf="this.contactNotes.length>0">
+        <ion-item-sliding *ngFor="let note of contactNotes; let i = index;" class="note-item">
+            <ion-item >
+                <p class="note-title">{{note.subject}}</p>
+                <p class="note-date">{{note.created | date : 'longDate'}}</p>
+                <p class="note-body" [innerHTML]="note.body"></p>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items"  (click)="deleteNotes([note], i)">
+                  <ion-icon name="md-trash" color="danger"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items"  (click)="onClickNewNote(note, i)">
+                  <ion-icon name="ios-create" color="primary"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <div class="new-event-div" (click)="onClickNewNote(null, 0)">
+        <ion-icon name="ios-add"></ion-icon>
+      </div>
+    </div>
+  </div>
+	
+	
+  <!-- <ion-tabs id="contact-detail-controller" tabsPlacement='top' primary>
+    <ion-tab [root]="tab1Root" [rootParams]="tabParam" tabTitle="JOBS & ACTIVITY" id="contact-detail-jobs"></ion-tab>
+    <ion-tab [root]="tab2Root" [rootParams]="tabParam" tabTitle="NOTES" id="contact-detail-note"></ion-tab>
+  </ion-tabs> -->
+</ion-content>

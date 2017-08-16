@@ -1,0 +1,49 @@
+monthview {
+	color: #3a405b;
+	.calendar-month-view-header{
+		text-align: center;
+		letter-spacing: 0.2px;
+		color: #3a405b;
+		font-size: 17px;
+		button{
+			background-color: transparent;
+			ion-icon{
+				color: #292e42;
+			}
+		}
+
+
+	}
+
+	
+	table{
+		border: none !important;
+	}
+
+	// th{
+	// 	border: none !important;
+	// 	color: #b5c1cf;
+	// 	font-size: 19px;
+	// }
+	// td{
+	// 	font-size: 17px;
+	// 	color: #2a2e42;
+	// 	font-weight: normal !important;
+	// }
+
+	// .table-bordered[_ngcontent-c1] > tbody[_ngcontent-c1] > tr[_ngcontent-c1] > td[_ngcontent-c1], .table-bordered[_ngcontent-c1] > tfoot[_ngcontent-c1] > tr[_ngcontent-c1] > td[_ngcontent-c1] {
+ //    	border: 1px solid #e4e8f0;
+	// }
+
+	// .monthview-selected[_ngcontent-c1] {
+	//     background-color: transparent;
+	//     color: #2a2e42;
+	//     border: 2px solid #13a3ff !important;
+	// }
+	// .monthview-current[_ngcontent-c1] {
+	//     background-color: transparent;
+	//     border: 2px solid green !important;
+	// }
+
+	
+}

@@ -1,0 +1,50 @@
+page-calendar-modal {
+	ion-content{
+		padding: 0px 0px !important; 
+		.scroll-content {
+		    padding: 0px 0px !important;
+		}
+	}
+
+	.new-contact-header{
+		background-color: transparent;
+		border-bottom: 1px solid rgba(58, 64, 91, 0.1);
+		.item-inner{
+		text-align: center;
+			border-bottom: 0px !important;
+		}
+
+		ion-label{
+			color: $title-font-color;
+			font-size: $content-big-font;
+			font-weight: 600;
+		}
+
+		ion-icon{
+			font-size: 12vw;
+			margin-right: 12vw !important;
+			color: $title-font-color;
+		}
+
+		.done-class {
+			background-color: transparent;
+			color: $title-font-color;
+			font-size: $content-medium-font;
+		}
+	}
+
+	[_nghost-c0] > div[_ngcontent-c0] {
+    	height: auto !important;
+	}
+
+	.time-event{
+		width: 100%;
+		margin-top: 30px;
+		text-align: center;
+		color: #e94c7e;
+		font-size: $content-medium-font;
+	}
+
+	
+
+}

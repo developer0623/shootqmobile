@@ -1,0 +1,113 @@
+page-event-add {
+	ion-content{
+		padding: 16px 0px !important; 
+		.scroll-content {
+		    padding: 16px 0px !important;
+		}
+	}
+
+	.new-contact-header{
+		background-color: transparent;
+		border-bottom: 1px solid rgba(58, 64, 91, 0.1);
+		.item-inner{
+		text-align: center;
+			border-bottom: 0px !important;
+		}
+
+		ion-label{
+			color: $title-font-color;
+			font-size: $content-big-font;
+			font-weight: bold;
+		}
+
+		ion-icon{
+			font-size: $title-big-font;
+		}
+	}	
+
+	.job-title{
+		width: 100%;
+		height: 15vw;
+		color: white;
+		font-size: $content-big-font;
+		font-weight: bold;
+		padding-left: 16px;
+		display: flex;
+		align-items: center;
+	}
+
+	.assign-row{
+		padding-left: 16px;
+		box-shadow: inset 0 -1px 0 0 #e4e8f0;
+		height: 17vw;
+		.assign-for-col{
+			max-width: 45px;
+			display: flex;
+			align-items: center;
+			font-size: $content-medium-font;
+			color: rgba(58, 64, 91, 0.5);
+		}
+		.assign-content{
+			display: flex;
+			align-items: center;
+			.item-date{
+				margin: 0px !important;
+				font-size: $content-medium-font;
+				color: rgba(58, 64, 91, 1);
+			}
+			.item-time{
+				margin: 0px !important;
+				font-size: $content-medium-font;
+				color: #57cd75;
+			}
+		}
+		ion-item{
+			padding-left: 0px;
+			font-size: $content-medium-font;
+			color: rgba(58, 64, 91, 0.5);
+			ion-avatar{
+				margin-right: 10px !important;
+			}
+		}
+
+		.assign-button {
+			border: 1px dotted rgba(58, 64, 91, 0.5);
+			font-size: $content-medium-font;
+			color: rgba(58, 64, 91, 0.5);
+			width: 28vw;
+			padding: 8px;
+			border-radius: 30px;
+			text-align: center;
+
+		}
+	}
+
+	.task-title{
+		margin-top: 4vw;
+		ion-input{
+			font-size: $content-big-font !important;
+			color: rgba(58, 64, 91, 1);
+		}
+	}
+	.task-description-item {
+		ion-textarea{
+			font-size: $content-medium-font !important;
+			color: rgba(58, 64, 91, 1);
+			border: 0.5px solid rgba(58, 64, 91, 0.5);
+		}
+	}
+	.save-bt{
+		width: 100%;
+		position:fixed;
+		bottom : 0px;
+		left: 0px;
+		height: 13vw;
+		background-color: #2A2E42;
+		z-index: 100;
+		color: white;
+		font-size: $content-medium-font;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+}

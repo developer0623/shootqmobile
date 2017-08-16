@@ -1,0 +1,129 @@
+page-job-add {
+	ion-content{
+		padding: 16px 0px 13vw 0px !important; 
+		.scroll-content {
+		    padding: 16px 0px 13vw 0px !important;
+		}
+	}
+
+	.new-contact-header{
+		background-color: transparent;
+		border-bottom: 1px solid rgba(58, 64, 91, 0.1);
+		.item-inner{
+		text-align: center;
+			border-bottom: 0px !important;
+		}
+
+		ion-label{
+			color: $title-font-color;
+			font-size: $content-big-font;
+			font-weight: bold;
+		}
+
+		ion-icon{
+			font-size: $title-big-font;
+		}
+	}
+
+	.page-form1{
+		.address-item{
+			margin-left: 16px;
+			width: calc(100% - 16px);
+			width: -webkit-calc(100% - 16px);
+			border-bottom: 1px solid rgba(58, 64, 91, 0.1) !important;
+			.address-label{
+				color: $title-font-color;
+				font-size: $content-small-font;
+				margin-bottom: 4px;
+				margin-top: 10px;
+				text-align: left !important;
+			}
+			.address-input{
+				margin-top: 8px;
+				margin-bottom: 6px;
+				width: 100%;
+				color: $title-font-color;
+				font-size: $content-medium-font;
+			}
+		}
+		
+		ion-item{
+			.item-inner{
+				border-bottom: 1px solid rgba(58, 64, 91, 0.1) !important;
+			}
+
+			ion-label{
+				color: $title-font-color;
+				font-size: $content-small-font;
+			}
+			ion-input, ion-datetime, ion-select{
+				color: $title-font-color;
+				font-size: $content-medium-font;
+			}
+		}
+	}
+
+	.save-bt{
+		width: 100%;
+		position:fixed;
+		bottom : 0px;
+		left: 0px;
+		height: 13vw;
+		background-color: #2A2E42;
+		z-index: 100;
+		color: white;
+		font-size: $content-medium-font;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+	.search-list-contacts {
+		.contact-list-title {
+			color: $title-font-color;
+			font-size: $content-big-font;
+			font-weight: normal;
+
+		}
+
+		.contact-list-content{
+			color: #8f8f8f;
+			font-size: $content-medium-font;
+			font-weight: normal;
+		}
+	}
+
+	ion-list{
+		margin-bottom: 0px !important;
+		border-bottom-width: 0px !important;
+	}
+
+	.contact-profile{
+				height: 10vw;
+				width: 10vw; border-radius : 50%;
+				font-size: $content-big-font;
+				font-weight: bold;
+				color: #B5C1CF;
+				
+				display: flex;
+				display: -webkit-flex;
+			    justify-content: center;
+			    align-items: center;		    
+
+			    position: relative;
+			    margin: auto;
+			    margin-right: 20px;
+			    background: #fff; 
+			}
+			.contact-profile:after{
+				content: '';
+				position: absolute;
+				top: -1px; bottom: -1px; right: -1px;
+				left: -1px;
+				background-image: -webkit-linear-gradient(135deg, #e75050, #f7ae18);
+				background-image: linear-gradient(135deg, #e75050, #f7ae18);
+				z-index: -1; border-radius: inherit;
+			}
+
+	
+
+}

@@ -1,0 +1,233 @@
+page-contact-detail {
+	.toolbar-background{
+		background: white;
+		border-bottom: none !important;
+	}
+
+	
+	.segment-button {
+		font-size: $content-small-font !important;
+		background: transparent !important;
+	}
+
+	.segment-md .segment-button {
+		opacity: 1;
+		height: 3.2rem;
+		border-bottom: 2px solid #E4E8F0;
+		
+		color: $title-font-color;
+	}
+
+	.segment-ios .segment-button {
+		max-width: 100% !important;
+		border-left: none;
+		border-top: none;
+		border-right: none;
+		border-bottom: 2px solid #E4E8F0;
+		
+		color: $title-font-color;
+	}
+	.segment-activated{
+		border-bottom: 2px solid #086AFF !important;
+		color: #086AFF !important;
+	}
+
+	
+
+	#contact-detail-controller {
+		top: initial;
+	}
+
+	.contact-content{
+		text-align: center;
+			.contact-name{
+				margin-top: 1vw;
+				margin-bottom: 2vw;
+				color: $content-font-color;
+				font-size: $content-medium-font;
+			}
+			.contact-type{
+				margin-top: 1vw;
+				margin-bottom: 4vw;
+				color: #B5C1CF;
+				font-weight: bold;
+				font-size: 3.5vw;
+			}
+	}
+
+	.contact-content1{
+		text-align: center;
+		padding-top: 3px;
+		.img-div{
+			margin: auto;
+			height: 20vw;
+			width: 20vw;
+			display: flex;
+			justify-content: center;
+			 position: relative;
+			 border-radius : 50%;		    
+			 background: #fff;
+			align-items:center;
+			img{
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+		}
+		.img-div:after{
+			content: '';
+				position: absolute;
+				top: -1px; bottom: -1px; right: -1px;
+				left: -1px;
+				background-image: linear-gradient(135deg, #e75050, #f7ae18);
+				background-image: -webkit-linear-gradient(135deg, #e75050, #f7ae18);
+				z-index: -1; border-radius: inherit;
+		}
+			.contact-name{
+				margin-top: 1vw;
+				margin-bottom: 2vw;
+				color: $content-font-color;
+				font-size: $content-medium-font;
+			}
+			.contact-type{
+				margin-top: 1vw;
+				margin-bottom: 4vw;
+				color: #B5C1CF;
+				font-weight: bold;
+				font-size: 3.5vw;
+			}
+	}
+	.contact-events{
+			width: 100%;
+			padding: 10px 8%;
+			display: inline-block;
+
+			.button-items{
+				float: left;
+				background: transparent;
+				margin: 0px 9vw;
+
+				.button-inner{
+					width: 10vw;
+					height: 10vw;
+					border-radius: 50%;
+					box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+				}
+				
+				ion-icon{
+					color: #3a405b;
+					font-weight: bold;
+				}
+			}
+	}
+	#contact-detail-controller{
+		.tabbar{
+			background: white !important;
+			border-bottom: none;
+		}
+
+		.tab-button-text{
+			font-size: $content-small-font;
+			color: $title-font-color;
+			letter-spacing: 1px;
+		}
+
+		.tab-button{
+			border-bottom: 2px solid #E4E8F0;
+			min-height: 2.6rem !important;
+		}
+
+		.tab-button[aria-selected=true] {
+		    
+		    border-bottom: 2px solid #086AFF;
+		    .tab-button-text{
+				color: #086AFF;
+			}
+		}
+	}
+
+	.profile-img-icon {
+		font-size: 8vw;
+		color: $content-font-color;
+		padding: 3.5vw;
+	}
+
+	.segment-jobs {
+		.ass-job-title{
+			color: rgba(58, 64, 91, 0.5);
+			font-size: $content-big-font;
+			font-weight: bold;
+			margin-left: 10px;
+		}
+	}
+
+	.segment-note {
+		.note-item {
+			padding: 0px 12px 12px 0px;
+
+			ion-item{
+				border-radius: 3px;
+				box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.09);
+				background: white !important;
+				border-bottom: none !important;
+				border-left: 2px solid transparent;
+				border-image: linear-gradient(178deg, #e75050, #f7ae18);
+				border-image-slice: 1;
+			}
+
+			.note-title{
+				font-size: $content-big-font; font-weight: bold; color: $title-font-color;
+				margin-bottom: 1vw;
+			}
+
+			.note-date{
+				font-size: $content-medium-font; color: $title-font-color;
+			}
+			.note-body{
+				font-size: $content-medium-font; color: #8e9093;
+			}
+			
+			ion-item-options{
+				border-bottom: 0px ;
+			}
+
+			.no-items{
+				background: transparent;
+			}
+
+			.button-items{
+				background: transparent;
+
+				.button-inner{
+					width: 12vw;
+					height: 12vw;
+					border-radius: 50%;
+					box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+				}
+				
+				ion-icon{
+					// color: #3a405b;
+					font-weight: bold;
+				}
+			}
+		}
+		.new-event-div{
+			position: fixed;
+			width: 18vw;
+			height: 18vw;
+			bottom: 20px;
+			right: 20px;
+			box-shadow: 0 5px 15px 0 rgba(8, 106, 255, 0.5);
+			background-color: #086AFF;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			ion-icon{
+				color: white;
+				font-size: 9vw;
+				font-weight: 600;
+			}
+		}
+	}
+
+}

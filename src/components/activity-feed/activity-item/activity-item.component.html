@@ -1,0 +1,99 @@
+<ion-item [ngSwitch]="item.verb">
+	<div item-left class="activity-icon">
+		<ion-icon  name="{{getIcon(item.verb)}}"  [ngClass]="getIconColor(item.verb)"></ion-icon>
+	</div>
+    
+    <p class="activity-item-content" *ngSwitchCase="'sent proposal'">
+                <a (click)="onClickActivity('jobs', item, 'contracts')">Proposal</a>
+                has been sent to the client and is awaiting their review.
+    </p>
+    <p class="activity-item-content" *ngSwitchCase="'accepted proposal'">
+                The client has accepted the
+               <a (click)="onClickActivity('jobs', item, 'contracts')">proposal</a>.
+                Click <a (click)="previewContract(item.data.contract.id)">here</a> to view the contract.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'expired proposal'">
+                The most recent <a (click)="onClickActivity('jobs', item, 'contracts')">proposal</a>
+                for {{ item.target.displayName }} has expired.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'archived proposal'">
+                The most recent <a (click)="onClickActivity('jobs', item, 'contracts')">proposal</a>
+               for {{ item.target.displayName }} has been archived.
+    </p>
+    <p class="activity-item-content" *ngSwitchCase="'deleted proposal'">
+                The most recent proposal for {{ item.target.displayName }} has been deleted.
+    </p>
+
+            <!-- Contract -->
+   <p class="activity-item-content" *ngSwitchCase="'sent contract'">
+                <a (click)="previewContract(item.object.id, false)">The contract</a> has been sent to the client
+                and is awaiting their review.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'signed contract'">
+                The client has signed the contract. Click <a (click)="previewContract(item.object.id)">here</a>
+                to review and countersign.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'countersigned contract'">
+                Contract has been countersigned. Click <a (click)="previewContract(item.object.id)">here</a>
+                to view the contract.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'archived contract'">
+                The <a (click)="previewContract(item.object.id, false)">contract</a> for {{ item.target.displayName }}
+                has been archived.
+    </p>
+
+           <!-- Job -->
+    <p class="activity-item-content" *ngSwitchCase="'created job'">
+                <a (click)="onClickActivity('jobs', item, '')">{{ item.object.displayName }}</a> has been created.
+    </p>
+    <p class="activity-item-content" *ngSwitchCase="'deleted job'">
+                The studio has deleted {{ item.object.displayName }}.
+    /p>
+    <p class="activity-item-content" *ngSwitchCase="'archived job'">
+                The <a (click)="onClickActivity('jobs', item, '')">{{ item.object.displayName }}</a> has been archived.
+    </p>
+
+            <!-- Event -->
+   <p class="activity-item-content" *ngSwitchCase="'scheduled event'">
+                <a (click)="onClickActivity('jobs', item, 'events')">{{ item.object.displayName }}</a>
+               has been scheduled.
+    </p>
+    <p class="activity-item-content" *ngSwitchCase="'deleted event'">
+                {{ item.object.displayName }} has been deleted.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'changed event'">
+                <a (click)="onClickActivity('jobs', item, 'events')">{{ item.object.displayName }}</a>
+                has been changed.
+    </p>
+
+           <!-- Invoice/Payment -->
+    <p class="activity-item-content" *ngSwitchCase="'sent invoice'">
+                <a (click)="onClickActivity('jobs', item, 'invoices')">Invoice</a> sent.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'paid invoice'">
+                <a (click)="onClickActivity('jobs', item, 'invoices')">Invoice</a>
+                paid in full - ${{ item.data.paid }}.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'overdue invoice'">
+                <a (click)="onClickActivity('jobs', item, 'invoices')">Invoice</a>
+                overdue - ${{ item.data.balance }} owed.
+    </p>
+   <p class="activity-item-content" *ngSwitchCase="'received payment'">
+                <a (click)="onClickActivity('jobs', item, 'invoices')">Payment</a>
+               received - ${{ item.data.paid }} paid.
+    </p>
+    <p class="activity-item-content" *ngSwitchDefault>
+                {{ item.title }}
+    </p>
+
+
+    <p *ngIf="showTargetMeta && item.target">
+        <a (click)="onClickActivity('jobs', item, '')" >{{ item.target.displayName }}</a><br/>
+    </p>
+    <span class="activity-item-date" *ngIf="item.actor">By {{ item.actor.displayName }} – </span>
+    <span class="activity-item-date">{{ item.published | date: 'MMMM d' }} at
+                {{ item.published | date: 'shortTime' }}</span>
+        
+    <p class="activity-item-content" *ngSwitchCase="'paid invoice'">Paid</p>
+    
+</ion-item>

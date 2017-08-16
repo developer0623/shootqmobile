@@ -1,0 +1,55 @@
+
+<ion-content padding id="contact-note-page">
+	<ion-item class="new-contact-header">
+            <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>            
+              Add Event to {{selectedJob.name}}        
+    </ion-item>
+
+
+    <ion-row class="assign-row">
+		<ion-col col-2 class="assign-for-col">On</ion-col>
+		<ion-col col-10 class="assign-content">
+			<ion-item *ngIf="dateFlag">
+				<p class="item-date" item-left>{{selectedDate | date: "MMM d"}}</p>
+				<p class="item-time" item-right>{{startTime}} - {{endTime}}</p>
+			</ion-item>
+			<div class="assign-button" (click)="onClickCal()" *ngIf="!dateFlag">Date</div>
+		</ion-col>
+	</ion-row>
+	
+	
+	<ion-row class="assign-row">
+		<ion-col col-2 class="assign-for-col">Invite</ion-col>
+		<ion-col col-9 class="assign-content">
+			<ion-item *ngIf="assignFlag">
+				<ion-avatar item-left>
+					<img src="assets/slideimage/img.png">
+				</ion-avatar>
+				Jonny Cash
+			</ion-item>
+			<div class="assign-button" (click)="onClickAssign()" *ngIf="!assignFlag">Guest</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-item *ngIf="dateFlag" class="task-title">
+		<ion-input placeholder="Event Title"></ion-input>
+	</ion-item>
+
+	<ion-item *ngIf="dateFlag" class="task-description-item">
+		<ion-textarea placeholder="description" rows="5"></ion-textarea>		
+	</ion-item>
+	
+
+	<button (click)="onSave()" class="save-bt" *ngIf="dateFlag">SAVE</button>
+		    
+</ion-content>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+newmail-modal {
+
+	.message-template-form {
+
+		.mail-header {
+			border-bottom: 1px solid #ddd;
+
+			ion-col {
+				font-size: $content-medium-font;
+				padding: 0 3vw 0 0;
+			}
+			.mail-to {
+				display: flex;
+				align-items: center;
+				color: #aaa;
+				font-size: $content-medium-font;
+			}
+
+			.ng2-tag-input[_ngcontent-c0] {
+				border-bottom: none !important;
+			}
+		}
+		.mail-body {
+			font-size: $content-medium-font;
+		}
+	}
+
+}

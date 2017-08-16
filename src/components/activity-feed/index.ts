@@ -1,0 +1,1 @@
+export { NgActivityFeeedModule } from './activity-feed.module';

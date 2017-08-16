@@ -1,0 +1,17 @@
+<ion-card >
+  <ion-item  class="job-item" *ngIf="isLoading">
+    
+    <ion-list class="job-type" [ngStyle]="{'background-color': jobItem.custom_type.color}" item-left>
+      <p class='job-type-title'>{{jobItem.custom_type.title}}</p>
+      <p class="job-type-detail">{{jobItem.custom_type.content}}</p>
+    </ion-list>
+    <ion-list>
+      <p class="job-title">{{jobItem.name}}</p>
+      <p class="job-date">{{jobItem.main_event_date | date:'fullDate'}}</p>
+      <p class="job-subtask">20 subtasks</p>
+    </ion-list>
+  </ion-item>
+
+
+
+</ion-card>

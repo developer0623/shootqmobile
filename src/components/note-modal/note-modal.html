@@ -1,0 +1,20 @@
+<div class="note">
+  <ion-item>
+        <ion-input type="text" placeholder="Note Name" [(ngModel)]="note.subject"></ion-input>
+  </ion-item>
+  <ion-item>
+        <ion-textarea rows="4" [(ngModel)]="note.body"></ion-textarea>
+  </ion-item>
+
+  <ion-row>
+    <ion-col col-1></ion-col>
+    <ion-col col-4><button (click)="onSave()" class="save-bt">Post Note</button></ion-col>
+    <ion-col col-2></ion-col>
+    <ion-col col-4><button (click)="onCancel()" class="cancel-bt">Cancel</button></ion-col>
+    <ion-col col-1></ion-col>
+  </ion-row>
+
+
+        
+  
+</div>

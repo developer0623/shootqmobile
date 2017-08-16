@@ -1,0 +1,50 @@
+note-modal {
+	background: rgba(0, 0, 0, 0.3);
+	.note{
+		margin: auto;
+		margin-top: 15vh;
+		border-radius: 2vw;
+		width: 90%;
+		padding: 3vw 1vw;
+		background: white;
+			
+		ion-item{
+				.item-inner{
+					border-bottom: 1px solid rgba(58, 64, 91, 0.1) !important;
+					box-shadow: none !important;
+				}
+
+				ion-label{
+					color: $title-font-color;
+					font-size: $content-small-font;
+				}
+				ion-input, ion-datetime, ion-select{
+					color: $title-font-color;
+					font-size: $content-medium-font;
+				}
+		}
+
+		.save-bt{
+			width: 100%;
+			border-radius: 1vw;
+			color: #5acc77;
+			background: white;
+			padding: 1vw 0;
+			font-size: $content-medium-font;
+			font-weight: bold;
+			letter-spacing: 2px;
+		}
+		.cancel-bt{
+			width: 100%;
+			border-radius: 1vw;
+			color: #777;
+			background: white;
+			padding: 1vw 0;
+			font-size: $content-medium-font;
+			font-weight: bold;
+			letter-spacing: 2px;
+		}
+
+	}
+
+}

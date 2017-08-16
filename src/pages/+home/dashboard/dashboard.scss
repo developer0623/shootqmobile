@@ -1,0 +1,232 @@
+page-dashboard {
+	ion-content{
+		padding: 16px 0px !important; 
+		.scroll-content {
+		    padding: 16px 0px !important;
+		}
+	}
+	.click-search-icon{
+		font-size: $title-medium-font;
+	}
+	.dashboard-header{
+		background-color: transparent;
+		.item-inner{
+		text-align: center;
+			border-bottom: 0px !important;
+		}
+	}
+	.task-list{
+		margin-top: 5vh;
+		width: 100%;
+	}
+
+	ion-list{
+		margin-bottom: 0px !important;
+	}
+
+
+	.overrude-task-list-item, .task-list-item {
+
+		ion-card{
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.08);
+			ion-item{
+				border-bottom: none !important;
+			}
+		}
+
+		ion-item{
+			border-radius: 3px;
+			box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.09);
+			background: white !important;
+			border-bottom: none !important;
+		}
+		ion-avatar{
+			height: 17vw;
+
+			img{
+				height: 17vw; width: 17vw; border-radius : 5px;
+			}
+		}
+		.job-title{
+			font-size: $content-big-font; font-weight: bold; color: $title-font-color;
+			margin-bottom: 10px;
+		}
+
+		.job-date{
+			font-size: $content-medium-font; color: $title-font-color;
+		}
+		.job-subtask{
+			font-size: $content-medium-font; color: $title-font-color;
+		}
+		.job-overdue-date{
+			font-size: $content-medium-font; color: red;
+			span{
+				float: right;
+			}
+		}
+
+		ion-item-sliding{
+			padding: 0px 12px 12px 12px;
+		}
+		ion-item-options{
+			border-bottom: 0px ;
+		}
+
+		.no-items{
+			background: transparent;
+		}
+
+		.button-items{
+			background: transparent;
+
+			.button-inner{
+				width: 12vw;
+				height: 12vw;
+				border-radius: 50%;
+				box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+			}
+			
+			ion-icon{
+				color: #3a405b;
+				font-weight: bold;
+			}
+		}
+		.checkmark-icon{
+			ion-icon{
+				color: #38f9d7;
+				font-size: 13vw;
+			}
+		}
+
+		.trash-icon{
+			ion-icon{
+				color: #e94e4c;
+			}
+		}
+	}
+
+	.show {
+		opacity: 1 !important;
+		display: block;
+		// transition: 2s ease-in-out all;
+	}
+	.step {
+		display: none;
+		opacity: 0;
+		transition: 2s ease-in-out all;
+
+	}
+
+	.overrude-task-bar{
+		border-radius: 50px;
+		margin: 12px;
+		width: calc(100% - 24px);
+		width: -webkit-calc(100% - 24px);
+		height: 10vw;
+		max-height: 90px;
+		background: linear-gradient(132.69deg, #FE5196 0%, #F77062 100%);
+			.taskbar-title{
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				font-size: $content-medium-font;
+				letter-spacing: 2px;
+			}
+
+			ion-icon{
+				color: white;
+			}
+			ion-icon::before{
+				font-size: 7.5vw;
+			}
+
+
+	}
+
+	.opposite{
+		background: linear-gradient(312.69deg, #FE5196 0%, #F77062 100% );
+	}
+
+	.week-bar{
+		ion-col{
+			padding: 0px;
+		}
+		.weekbar-title{
+			width: 100%;
+			text-align: center;
+			font-weight: bold;
+			font-size: $content-medium-font;
+			color: #B5c1CF;
+		}
+
+		.weekbar-name{
+			width: 100%;
+			text-align: center;
+			font-size : $content-medium-font;
+			color: #2A2E42;
+			margin-top: 10px;
+			padding: 0px 3px;
+			.weekbar-name-content {
+				padding: 11px;
+				
+			}
+			.selected-content{
+				border-style: solid;
+  				border-width: 1px;
+  				border-image-source: linear-gradient(to left, #38f9d7, #43e97b);
+  				border-image-source: -webkit-linear-gradient(to left, #38f9d7, #43e97b);
+  				border-image-slice: 1;
+			}
+		}
+
+
+	}
+
+
+	.eventgroup-total-list{
+		.eventgroup-sub-list{
+			ion-item{
+				border-bottom: none !important;
+				border-radius: 2vw;
+			}
+			.event-group-item {
+				margin-bottom: 1vw;
+				background: #ddd;
+				.event-title {
+					font-size: 4.5vw;
+					font-weight: bold;
+					color: $content-font-color;
+				}
+				.event-date {
+					font-size: 4vw;
+					color: $content-font-color;
+				}
+			}
+			.no-event-schedule-event {
+				font-size: 4vw;
+				color: $content-font-color;
+				text-align: center;
+			}
+
+			.day-list-header {
+				color: #b5c1cf;
+				font-size: 3.6vw;
+
+				.header-line-col{
+					display: flex;
+					display: -webkit-flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.header-line{
+					width: 100%;
+					height: 1px;
+					background: #b5c1cf;
+					margin: auto 0px;
+				}
+			}
+			
+		}
+	}
+
+}

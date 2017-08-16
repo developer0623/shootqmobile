@@ -1,0 +1,28 @@
+<ion-menu [content]="content" *ngIf = "menuFlag">
+  
+  <ion-content class="menu-content">
+   <!--  <img src="assets/login/menubg.png" class="menu-bg" /> -->
+    <ion-list>
+
+      <ion-item class="menu-profile-item">
+        
+          <profile-img src="{{userphoto}}" item-left></profile-img>
+               
+          <p class="full-name">{{userInfo.first_name}} {{userInfo.last_name}}</p>
+          <p class="primary-mail">{{userInfo.email}}</p>
+      </ion-item>
+      <div class="menu-space"></div>
+      <ion-item menuClose class="menu-item" *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </ion-item>
+
+    </ion-list>
+    <ion-item menuClose class="menu-item logout-item" (click)="onClickLogout()">
+        Logout
+      </ion-item>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle class="menu-button">
+              <profile-img src="{{userphoto}}"></profile-img>
+    </button>
+    <div class="custom-header-content">
+      <ion-icon name='search' class="click-search-icon" (click)="onClickSerch()"></ion-icon>
+    </div>
+    <ion-buttons end>
+      <button ion-button (click)="onClickSetting()" class="navbar-option-img">
+        <img src="assets/icon/options.png"/>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page2">
+ 
+  <ion-row class="week-bar" on-swipe="swiped($event)">
+    <ion-col *ngFor="let day of weeklist; let i = index">
+      <div class="weekbar-title">{{day.name}}</div>
+      <div class="weekbar-name"><div class="weekbar-name-content selected-content" *ngIf='i == 3'>{{day.Day}}</div></div>
+      <div class="weekbar-name"><div class="weekbar-name-content" *ngIf='i != 3'>{{day.Day}}</div></div>
+    </ion-col>
+  </ion-row>
+
+  <!-- <div class="task-list">
+    <ion-item [ngClass]="{'opposite':showOverudeTaskFlag}" class="overrude-task-bar" (click)="onClickoverudeTasks()">
+          <ion-icon name='arrow-down' item-right *ngIf="!showOverudeTaskFlag"></ion-icon>
+          <ion-icon name='arrow-up' item-right *ngIf="showOverudeTaskFlag"></ion-icon>
+          <div class="taskbar-title">
+            {{overudeTasks.length}} OVERDUE TASKS
+          </div>
+    </ion-item>
+
+    <div class="overrude-task-list-item"  [hidden]="!showOverudeTaskFlag">
+        <ion-list>
+          <ion-item-sliding *ngFor="let task of overudeTasks">
+            <ion-item color="light" id="dashboard-list-item3">
+              <ion-avatar item-left>
+                <img src="assets/icon/checkmark.png"/>
+              </ion-avatar>
+              <ion-list>
+                <p class="job-title">{{task.title}}</p>
+                <p class="job-date">{{task.content}}</p>
+                <p class="job-subtask">20 subtasks</p>
+                <p class="job-overdue-date">3 Days Overdue <span>May 16</span></p>
+              </ion-list>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items checkmark-icon" (click)="onClickModal(0)">
+                  <ion-icon name="ios-checkmark-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="onClickModal(1)">
+                  <ion-icon name="ios-person-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="onClickModal(2)">
+                  <ion-icon name="ios-briefcase-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items trash-icon" (click)="onClickModal(3)">
+                  <ion-icon name="ios-trash-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </div>
+
+    <ion-item [ngClass]="{'opposite':showOverudeTaskFlag}" class="overrude-task-bar" *ngIf="showOverudeTaskFlag" (click)="onClickoverudeTasks()">
+          <ion-icon name='arrow-up' item-right></ion-icon>
+          <div class="taskbar-title">
+            {{overudeTasks.length}} OVERDUE TASKS
+          </div>
+    </ion-item>
+
+    <div class="task-list-item" >
+        <ion-list>
+          <ion-item-sliding *ngFor="let task of newTasks">
+            <ion-item color="light" id="dashboard-list-item3">
+              <ion-avatar item-left>
+                <img src="assets/icon/checkmark.png"/>
+              </ion-avatar>
+              <ion-list>
+                <p class="job-title">{{task.title}}</p>
+                <p class="job-date">{{task.content}}</p>
+                <p class="job-subtask">20 subtasks</p>
+              </ion-list>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items checkmark-icon" (click)="onClickModal(0)">
+                  <ion-icon name="ios-checkmark-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="onClickModal(1)">
+                  <ion-icon name="ios-person-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="onClickModal(2)">
+                  <ion-icon name="ios-briefcase-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items trash-icon" (click)="onClickModal(3)">
+                  <ion-icon name="ios-trash-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </div>   
+  </div> -->
+
+  <ion-list *ngIf="isLoading" class="eventgroup-total-list" padding>
+    <ion-list *ngFor="let day of schedule.days" class="eventgroup-sub-list">
+      <!-- <ion-list-header> -->
+        <ion-row class="day-list-header">
+          <ion-col class="header-line-col">
+            <div class="header-line"></div>
+          </ion-col>
+          <ion-col col-auto>
+            {{ day.dayTitle }}
+          </ion-col>
+          <ion-col class="header-line-col">
+            <div class="header-line"></div>
+          </ion-col>
+        </ion-row>
+        
+      <ion-item *ngFor="let scheduleEvent of day.events" [style.background-color]="scheduleEvent.event.event_type_color" class="event-group-item">
+        <p class="event-title" [style.color]="scheduleEvent.textColor">{{ scheduleEvent.event.name }}</p>
+        <p class="event-date" [style.color]="scheduleEvent.textColor">{{ scheduleEvent.periodStr }}</p>        
+      </ion-item>
+
+      <ion-item *ngIf="day.events.length === 0" class="no-event-schedule-event">
+        No scheduled events.
+      </ion-item>
+    </ion-list>
+  </ion-list>
+
+  <activity-feed></activity-feed>
+
+
+
+
+
+
+
+
+</ion-content>

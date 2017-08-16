@@ -1,0 +1,44 @@
+
+<ion-content>
+  <!-- <ion-slides pager='true' parallax='true' padding > -->
+  <ion-slides pager='true' parallax='true' (ionSlideDidChange)="slideChanged()" (ionSlideNextStart)="onNextSlide()" (ionSlidePrevStart)="onPrevSlide()" spaceBetween="-70">
+    <ion-slide>
+      <img src="assets/login/slide1.png" class="slide-image">
+      <p class="slide-title" [ngClass]="{'slide-content-white': currentIndex!=0}">
+        All your tasks <br>
+        in one place
+      </p>
+      <p class="slide-content"  [ngClass]="{'slide-content-white': currentIndex!=0}">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
+        laudantium, totam rem aperiam
+      </p>
+
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/login/slide2.png" class="slide-image">
+      <p class="slide-title" [ngClass]="{'slide-content-white': currentIndex!=1}">
+        Event details<br>
+        in your pocket
+      </p>
+      <p class="slide-content" [ngClass]="{'slide-content-white': currentIndex!=1}">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
+        laudantium, totam rem aperiam
+      </p>
+      
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/login/slide3.png" class="slide-image">
+      <p class="slide-title" [ngClass]="{'slide-content-white': currentIndex!=2}">
+        Manage your <br>
+        team & contacts
+      </p>
+      <p class="slide-content" [ngClass]="{'slide-content-white': currentIndex!=2}">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
+        laudantium. totam rem aperiam
+      </p>
+
+      
+    </ion-slide>
+  </ion-slides>
+  <button (click)="continue()" class="slide-continue-bt" *ngIf="currentIndex == 2">CONTINUE</button>
+</ion-content>

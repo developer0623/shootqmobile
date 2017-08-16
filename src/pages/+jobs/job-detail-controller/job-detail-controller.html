@@ -1,0 +1,214 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Job Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="onEditJob()" class="navbar-edit-button">
+        Edit
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)] = "segmentname" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="overview">
+        OVERVIEW
+      </ion-segment-button>
+      <ion-segment-button value="task">
+        TASKS
+      </ion-segment-button>
+      <ion-segment-button value="note">
+        NOTES
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ass-job-item [job]="detailedJob" class="job-card" *ngIf="isLoading">          
+  </ass-job-item>
+  <div [ngSwitch]="selectedSegment" *ngIf="isLoading">
+    <div class="segment-content segment-overview" *ngSwitchCase="'overview'" >
+	    
+      <ion-list class="contact-card">
+          <ion-item-sliding>
+             <ion-item  class="contact-item">
+                <contact-img [name] = "detailedJob.primaryContact.name" [id]="detailedJob.primaryContact.contact" item-left></contact-img>
+                <ion-list>
+                  <p class="primary-contact">PRIMARY CONTACT</p>
+                  <p class="contact-name">{{detailedJob.primaryContact.name}}</p>
+                  <p class="contact-role">{{detailedJob.primaryContact.roles[0].name}}</p>
+                </ion-list>
+              </ion-item>
+            <ion-item-options side="right">
+              <button ion-button icon-only class="no-items">
+              </button>
+              <button ion-button icon-only class="button-items">
+                <ion-icon name="ios-chatbubbles-outline"></ion-icon>
+              </button>
+              <button ion-button icon-only class="no-items">
+              </button>
+              <button ion-button icon-only class="button-items" (click)="openPhoneCall(detailedJob.primaryContact)">
+                <ion-icon name="ios-phone-portrait"></ion-icon>
+              </button>
+              <button ion-button icon-only class="no-items">
+              </button>
+              <button ion-button icon-only class="button-items" (click)="openEmailModal(detailedJob.primaryContact)">
+                <ion-icon name="ios-mail-outline"></ion-icon>
+              </button>
+              <button ion-button icon-only class="no-items">
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+         
+      </ion-list>
+
+      <ion-list class="eventgroup-list">
+        <ion-list class="eventgroup-item" *ngFor="let eventgroup of detailedJob.eventgroups">
+          <ion-row class="eventgroup-item-content start-item">
+            <ion-col  class="timeline-circle">
+              <div class="circle-item start-circle"></div>
+            </ion-col>
+            <ion-col class="timeline-content">
+              <ion-list>
+                  <ion-item>
+                    <ion-icon item-left name="ios-time-outline"></ion-icon>
+                    <span>{{eventgroup.start | date : 'MMM d, h:mm a'}}</span> {{eventgroup.name}} begins
+                  </ion-item>
+                  <ion-item (click)="onShowMap(eventgroup.address)">
+                    <ion-icon item-left name="ios-pin-outline"></ion-icon>
+                    {{eventgroup.address}}
+                  </ion-item>                
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="eventgroup-item-content" *ngFor="let event of eventgroup.events; let i = index">
+            <ion-col class="timeline-circle">
+              <div class="circle-item content-circle"></div>
+            </ion-col>
+            <ion-col class="timeline-content">
+              <ion-list>
+                  <ion-item>
+                    <ion-icon item-left name="ios-time-outline"></ion-icon>
+                    <span>{{event.start | date : 'MMM d, h:mm a'}} - {{event.end | date : 'MMM d, h:mm a'}}</span> {{event.name}}
+                  </ion-item>
+                  <ion-item  (click)="onShowMap(event.location? event.location.address1: eventgroup.address)">
+                    <ion-icon item-left name="ios-pin-outline"></ion-icon>
+                    {{event.location? event.location.address1: eventgroup.address}}
+                  </ion-item>                
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row class="eventgroup-item-content end-item">
+            <ion-col class="timeline-circle">
+              <div class="circle-item end-circle"></div>
+            </ion-col>
+            <ion-col class="timeline-content">
+              <ion-list>
+                  <ion-item>
+                    <ion-icon item-left name="ios-time-outline"></ion-icon>
+                    <span>{{eventgroup.end | date : 'MMM d, h:mm a'}}</span> {{eventgroup.name}} ends
+                  </ion-item>
+                  <ion-item (click)="onShowMap(eventgroup.address)">
+                    <ion-icon item-left name="ios-pin-outline"></ion-icon>
+                    {{eventgroup.address}}
+                  </ion-item>                
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+
+        <ion-item class="new-eventgroup" (click)="onClicknewEventGroup()">
+            Add Another Timeslot
+        </ion-item>
+        
+      </ion-list>
+        
+
+        <div class="contact-section">
+          <ion-item class="contact-section-header">
+            <div item-right class="new-contact-button" (click)="onClickNewContact()">ADD A CONTACT</div>
+            All Contacts ({{detailedJob.job_contacts.length}})
+          </ion-item>
+          <ion-list class="contact-card" *ngFor="let contact of detailedJob.job_contacts; let i = index;">
+            <ion-item-sliding  *ngIf="contact.contact != detailedJob.primaryContact.contact">
+               <ion-item  class="contact-item">
+                  <contact-img [name] = "contact.name" [id]="contact.contact" item-left></contact-img>
+                  <ion-list>
+                    <p class="contact-name">{{contact.name}}</p>
+                    <p class="contact-role">{{contact.roles[0].name}}</p>
+                  </ion-list>
+                </ion-item>
+              <ion-item-options side="right">
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items">
+                  <ion-icon name="ios-chatbubbles-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="openPhoneCall(contact)">
+                  <ion-icon name="ios-phone-portrait"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="openEmailModal(contact)">
+                  <ion-icon name="ios-mail-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+           
+          </ion-list>
+        </div>
+
+    </div>
+
+    <div class="segment-content segment-task" *ngSwitchCase="'task'">
+
+      <ion-list class="eventgroups-list">
+        <div (click)="onClickEventGroup(eventGroup)" *ngFor="let eventGroup of detailedJob.eventgroups" class="eventgroup-item" [ngClass]="{'maineventgroup-item': eventGroup.id==detailedJob.main_event_group.id}">
+          <p class="mainevent-title" *ngIf="eventGroup.id==detailedJob.main_event_group.id">MAIN EVENT</p>
+          <p class="event-group-title">{{eventGroup.name}}</p>
+          <p class="eventgroup-date" *ngIf= "eventGroup.start">{{eventGroup.start | date : 'fullDate'}}</p>
+        </div>
+      </ion-list>
+
+      <div class="new-event-div" (click)="onClickAdd()">
+        <ion-icon name="ios-add"></ion-icon>
+      </div>
+    </div>
+
+    <div class="segment-content segment-note" *ngSwitchCase="'note'">
+      <ion-list *ngIf="this.notes.length>0">
+        <ion-item-sliding *ngFor="let note of notes; let i = index;" class="note-item">
+            <ion-item >
+                <p class="note-title">{{note.subject}}</p>
+                <p class="note-date">{{note.created | date : 'longDate'}}</p>
+                <p class="note-body" [innerHTML]="note.body"></p>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items"  (click)="deleteNotes([note], i)">
+                  <ion-icon name="md-trash" color="danger"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items"  (click)="onClickNewNote(note, i)">
+                  <ion-icon name="ios-create" color="primary"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <div class="new-event-div" (click)="onClickNewNote(null, 0)">
+        <ion-icon name="ios-add"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,93 @@
+
+<ion-content padding id="contact-note-page">
+	<ion-item class="modal-header" *ngIf="isLoading">
+            <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>
+            {{job.id? 'Edit a Job': 'Create a New Job'}}
+            <ion-icon name="ios-close-outline" item-right class="no-color"></ion-icon>
+    </ion-item>
+	<form class="page-form1" [formGroup]="jobForm" *ngIf="isLoading">
+	    <ion-item>
+	      <ion-label stacked [ngClass]="{'val-required': validFlags && !searchData}">Primary Contact<span class="icon-required">*</span></ion-label>
+	      <ion-input type="text" placeholder="Primary Contact" name="primarycontact" (input)='onInput($event)' [(ngModel)] ='searchData' [ngModelOptions]="{standalone: true}"></ion-input>
+	    </ion-item>
+		<ion-list *ngIf="!searchData || !searchFlag">
+			<ion-item>
+		      <ion-label stacked [ngClass]="{'val-required': validFlags && jobForm.controls.job_contact_role.errors}">Job Role<span class="icon-required">*</span></ion-label>
+		      <ion-select name="" placeholder='Select a Role' interface='popover' [(ngModel)] ='selectRole' [ngModelOptions]="{standalone: true}" (ngModelChange)="changeRole($event)">
+		        <ion-option *ngFor="let role of roles" value='{{role.id}}'>{{role.name}}</ion-option>
+		      </ion-select>
+		    </ion-item>
+		    <ion-item>
+		      <ion-label stacked [ngClass]="{'val-required': validFlags && jobForm.controls.name.errors}">Job Name<span class="icon-required">*</span></ion-label>
+		      <ion-input type="text" placeholder="Job Name" name="jobname" formControlName="name"></ion-input>
+		    </ion-item>
+		    <ion-item>
+		      <ion-label stacked>Job Type</ion-label>
+		      <ion-select name="" placeholder='Job type' interface='popover' formControlName="job_type">
+		        <ion-option *ngFor="let type of jobTypes" value='{{type.value}}'>{{type.label}}</ion-option>
+		      </ion-select>
+		    </ion-item>
+
+		    <ion-item formGroupName="main_event_group" *ngIf="!job.id">
+		      <ion-label stacked>Job Location Name</ion-label>
+		      <ion-input type="text" placeholder="Job Location Name" formControlName="location_name"></ion-input>
+		    </ion-item>
+
+		    <div class="address-item" formGroupName="main_event_group" *ngIf="!job.id">		    
+			    <div class="address-label">Job Address</div>
+			    <input type="text" class="address-input"   (setAddress)="getAddress($event)" googleplace  formControlName="address"/>
+			</div>
+
+			<ion-item formGroupName="main_event_group" *ngIf="!job.id">
+		      <ion-label stacked>Duration</ion-label>
+		      <ion-select name="" placeholder='Duration' interface='popover' formControlName="all_day">
+		        <ion-option value='{{true}}'>All Day</ion-option>
+		      </ion-select>
+		    </ion-item>
+
+		    <div class="date-wrapper" *ngIf="!job.id">
+			    <ion-item>
+			      <ion-label stacked [ngClass]="{'val-required': validFlags && jobForm.controls.main_event_group.controls.start.errors }">Start<span class="icon-required">*</span></ion-label>
+			      <ion-input *ngIf="startDate" value = "{{startDate | date: 'medium'}}"></ion-input>
+			    </ion-item>
+			    <button class="date-button" (click)="onClickStart()"></button>
+		    </div>
+
+		    <div class="date-wrapper" *ngIf="!job.id">
+			    <ion-item>
+			      <ion-label stacked [ngClass]="{'val-required': validFlags && jobForm.controls.main_event_group.controls.end.errors }">End<span class="icon-required">*</span></ion-label>
+			      <ion-input *ngIf = "endDate" value = "{{endDate | date: 'medium'}}"></ion-input>
+			    </ion-item>
+			    <button class="date-button" (click)="onClickEnd()"></button>		    	
+		    </div>
+		    
+			<button (click)="onSave()" class="save-bt">SAVE</button>
+		</ion-list>
+
+		<ion-list *ngIf="searchData && searchFlag" class="search-list-contacts">
+	        <ion-item  class="job-item" *ngFor="let item of searchedcontacts" (click) = "onSelectContact(item)">
+		        <ion-avatar item-left *ngIf="item.user_profile">
+	              <img src="{{item.user_profile.avatar}}"/>
+	            </ion-avatar>
+	            <div class="contact-profile" item-left *ngIf="!item.user_profile">
+                  {{item.first_name[0]}}{{item.last_name[0]}}
+                </div>
+
+	            <ion-list>
+			      <p class="contact-list-title">{{item.full_name}}</p>
+			      <p class="contact-list-content">Client</p>
+			    </ion-list>
+	        </ion-item>
+	    </ion-list>
+  </form>
+</ion-content>
+
+
+
+
+
+
+
+
+
+

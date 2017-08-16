@@ -1,0 +1,103 @@
+
+page-ass-jobs {
+
+	ion-content{
+		padding: 16px 0px !important; 
+		.scroll-content {
+		    padding: 16px 0px !important;
+		}
+	}
+	.new-contact-header{
+		background-color: transparent;
+		border-bottom: 1px solid rgba(58, 64, 91, 0.1);
+		.item-inner{
+		text-align: center;
+			border-bottom: 0px !important;
+		}
+
+		ion-label{
+			color: $title-font-color;
+			font-size: 18px;
+			font-weight: 600;
+		}
+
+		ion-icon{
+			font-size: 40px;
+			font-weight: 600;
+		}
+	}
+
+	.job-search{
+		.input-search{
+			background-color: transparent !important;
+			border-bottom: 0px solid #E4E8F0 !important;
+			width: 70%;
+			float: left;
+			.searchbar-search-icon {
+					display: none;
+			}
+			input{
+				font-size: 15px;
+				padding-left: 20px !important;
+				color: $title-font-color;
+
+			}
+
+			.searchbar-clear-icon{
+				display: none !important;
+			}
+			
+		}
+
+		.cancel-button{
+			float: right;
+			background-color: transparent;
+			font-size : 14px;
+			color: $title-font-color;
+		}
+	}
+
+	.job-item{
+		ion-avatar{
+			height: 75px;
+
+			img{
+				height: 75px; width: 75px; border-radius : 5px;
+			}
+		}
+
+		.job-type{
+			height: 72px;
+			width: 72px; border-radius : 5px;
+			
+			text-align: center;
+			color: white;
+			.job-type-title{
+				font-size: 30px;
+				font-weight: bold;
+				color: white;
+				line-height: 25px;
+				margin-top: 18px;
+			}
+			.job-type-detail{
+				font-size: 11px;
+				color: white;
+
+			}
+		}
+		.job-title{
+			font-size: 18px; font-weight: bold; color: $title-font-color;
+			margin-bottom: 10px;
+		}
+
+		.job-date{
+			font-size: 15px; color: $title-font-color;
+		}
+		.job-subtask{
+			font-size: 15px; color: $title-font-color;
+		}
+	}
+
+		
+
+}

@@ -1,0 +1,76 @@
+
+<ion-content padding id="contact-note-page">
+	<ion-item class="new-contact-header">
+            <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>            
+              New Task            
+    </ion-item>
+	
+	<div class="job-title" [ngStyle]="{'background-color': selectedJob.custom_type.color}">
+		{{selectedJob.name}}
+	</div>
+	<!-- <div class="assign-div">For 
+		<div class="assign-button" *ngIf="assignFlag">Assignee</div>
+		<div class="assign-profile"><img src="assets/slideimage/img.png">Johnny Cash</div>
+	</div> -->
+	<ion-row class="assign-row">
+		<ion-col col-2 class="assign-for-col">For</ion-col>
+		<ion-col col-9 class="assign-content">
+			<ion-item *ngIf="assignFlag">
+				<ion-avatar item-left>
+					<img src="assets/slideimage/img.png">
+				</ion-avatar>
+				Jonny Cash
+			</ion-item>
+			<div class="assign-button" (click)="onClickAssign()" *ngIf="!assignFlag">Assignee</div>
+		</ion-col>
+	</ion-row>
+	<ion-item class="select-item">
+		<ion-select name="" placeholder='Before or After' interface='popover'>
+		    <ion-option>Before</ion-option>
+		    <ion-option>After</ion-option>
+		</ion-select>
+	</ion-item>
+
+	<!-- <ion-item class="select-item" (click)="onClickBefore()">
+		Before or After
+		<ion-icon item-right name="ios-arrow-down-outline"></ion-icon>
+	</ion-item> -->
+
+	<ion-item class="task-item">
+		<ion-icon item-right name="md-arrow-dropdown"></ion-icon>
+		<ion-multi-picker item-content [multiPickerColumns] = "taskLists" placeholder='task' [(ngModel)] ='newtask'></ion-multi-picker>
+	</ion-item>
+
+	<ion-item *ngIf="newtask" class="task-title">
+		<ion-input placeholder="Task Title"></ion-input>
+	</ion-item>
+
+	<ion-item *ngIf="newtask" class="task-description-item">
+		<ion-textarea placeholder="description" rows="5"></ion-textarea>		
+	</ion-item>
+
+	<ion-item *ngIf="newtask" class="task-subtask-item">
+		<ion-label>Add a subtask</ion-label>
+		<ion-checkbox></ion-checkbox>
+		
+	</ion-item>
+
+	<ion-item class="task-event-item">
+		<button ion-button icon-only item-left class="cal-bt" (click)="onClickCal()">
+			<ion-icon name="md-calendar"></ion-icon>
+		</button>
+		{{selectedDate | date: "MMM d"}}
+		<button ion-button item-right class="save-bt" (click)="onClickSave()">SAVE</button>
+	</ion-item>
+		    
+</ion-content>
+
+
+
+
+
+
+
+
+
+

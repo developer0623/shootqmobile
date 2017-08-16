@@ -1,0 +1,11 @@
+<ion-list class="activity-list">
+  <ion-list-header *ngIf="feed.length">Recent Activities</ion-list-header>
+  <activity-item [item]="activity" [showTargetMeta]="showTargetMeta" *ngFor="let activity of feed | slice:0:10">
+    
+  </activity-item>
+         
+   <!--  <div *ngIf="feed.length" class="activity__footer">
+      <a (click)="seeAll()" class="see-all">See all activities (<span>{{ feed.length }}</span>)</a>
+    </div> -->
+</ion-list>
+  

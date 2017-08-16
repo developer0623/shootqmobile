@@ -1,0 +1,11 @@
+activity-feed {
+  .activity-list {
+    ion-list-header {
+      font-weight: bold;
+      font-size: 6vw;
+      color: $content-font-color;
+      text-transform: capitalize !important;
+      letter-spacing: 0 !important;
+    }
+  }
+}

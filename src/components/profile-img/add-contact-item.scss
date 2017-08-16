@@ -1,0 +1,18 @@
+add-contact-item {
+	.selected-contact-item {
+			float: left;
+			background: linear-gradient(135.59deg, #13A3FF 0%, #086AFF 100%);
+			padding: 0.5vw 2vw;
+			border-radius: 4vw;
+			font-size: 3.5vw;
+			margin-right: 1vw;
+			display: flex;
+			align-items: center;
+			color: white;
+			ion-icon {
+				margin-left: 1vw;
+				float: right;
+				font-size: 6vw;
+			}
+	}
+}

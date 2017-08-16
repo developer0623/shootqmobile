@@ -1,0 +1,75 @@
+// job-item {
+
+	.job-item{
+		// ion-avatar{
+		// 	height: 20vw;
+		// 	// max-height: 120px;
+
+		// 	img{
+		// 		height: 20vw; //75px
+		// 		// max-height: 120px;
+		// 		width: 20vw; 
+		// 		// max-width: 120px; 
+		// 		border-radius : 2vw;
+		// 	}
+		// }
+
+		.job-type{
+			height: 20vw;
+			// max-height: 120px;
+			width: 20vw; 
+			// max-width: 120px;
+			border-radius : 2vw;			
+			text-align: center;
+			color: white;
+			.job-type-title{
+				font-size: $job-title-font;
+				font-weight: bold;
+				color: white;
+				line-height: 6.5vw;
+				margin-top: 5vw;
+			}
+			.job-type-detail{
+				margin-top: 1.3vw;
+				font-size: $content-small-font;				
+				color: white;
+				line-height: 3vw !important;
+
+			}
+		}
+		.job-title{
+			font-size: 6vw; font-weight: bold; color: $title-font-color;
+			margin-bottom: 1vw;
+		}
+
+		.job-date{
+			font-size: $content-medium-font; color: $title-font-color;
+		}
+		.job-subtask{
+			font-size: $content-medium-font; color: $title-font-color;
+		}
+	}
+
+	.job-searched-item{
+			border-bottom: 1px solid #E4E8F0 !important;
+			font-size : $content-medium-font;
+			color: $title-font-color;
+						
+			.job-mark{
+				width: 7vw;
+				height: 7vw;
+				font-weight: bold;
+				font-size: $content-medium-font;
+				justify-content:center;
+				align-items: center;
+				display: flex;
+				display: -webkit-flex;
+				border-radius: 50%;
+				color: white;
+			}
+		}
+
+
+
+
+// }

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle class="menu-button">
+              <profile-img src="{{userphoto}}" ></profile-img>
+    </button>
+    Jobs ({{totalItems}})
+    <ion-buttons end>
+      <button ion-button (click)="onClickSetting()" class="navbar-option-img">
+        <img src="assets/icon/options.png"/>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page5">
+	<!-- <ion-item color="light" class="job-header">
+            <ion-avatar item-left (click)="onClickProfile()">
+              <img src="{{userphoto}}"/>
+            </ion-avatar>
+            <h2>
+              Jobs({{totalItems}})
+            </h2>
+
+            <ion-avatar item-right (click)="onClickSetting()">
+              <img src="assets/slideimage/img.png"/>
+            </ion-avatar>
+    </ion-item> -->
+
+  	<div class="job-search">
+  		<div class="spacer" style="height:10px;" id="page-spacer1"></div>  
+    	<div class="search-button" (click)="gotoSearchJob()">Search jobs</div>
+    </div>
+
+    <ion-list>
+      <job-item *ngFor="let job of jobs" [job]="job" [itemType]= 'true' (onClickItem)="gotoJobDetail($event)" >
+          
+      </job-item>
+      <!-- <ion-card *ngFor="let job of jobs" (click)="gotoJobDetail(job)">
+          <ion-item  class="job-item">
+            <ion-list class="job-type" [ngStyle]="{'background-color': job.job_type.color}" item-left>
+              <p class='job-type-title'>{{job.job_type.title}}</p>
+              <p class="job-type-detail">{{job.job_type.content}}</p>
+            </ion-list>
+            <ion-list>
+              <p class="job-title">{{job.name}}</p>
+              <p class="job-date">{{job.created | date:'fullDate'}}</p>
+              <p class="job-subtask">20 subtasks</p>
+            </ion-list>
+          </ion-item>
+      </ion-card> -->
+
+    </ion-list>
+  
+
+
+
+
+</ion-content>

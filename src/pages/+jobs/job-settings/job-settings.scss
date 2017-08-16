@@ -1,0 +1,37 @@
+page-job-settings {
+	// ion-content{
+	// 	padding: 16px 0px !important; 
+	// 	.scroll-content {
+	// 	    padding: 16px 0px !important;
+	// 	}
+	// }
+	color: #3a405b;
+	.toggle-list{
+		.toggle-list-title {
+			font-size: 20px;
+			font-weight: bold;
+			color: #3a405b;
+		}
+		.toggle-list-content{
+			border-bottom: 1px solid rgba(58, 64, 91, 0.2);
+			ion-label{
+				font-size: 15px;
+				color: #3a405b;
+			}
+			ion-toggle{
+				margin-right: 5px;
+			}
+
+			.toggle-ios {
+				height: 24px;
+				width: 43px;
+			}
+			.toggle-inner{
+				height: 20px;
+				width: 20px;
+			}
+		}		
+	}
+
+	
+}

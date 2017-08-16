@@ -1,0 +1,7 @@
+<ion-tabs id="tabsController-tabs1">
+  <ion-tab [root]="tab1Root" tabTitle="Dashboard" tabIcon="checkmark-circle" id="tabsController-tab1"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Jobs" tabIcon="briefcase" id="tabsController-tab4"></ion-tab>
+  <ion-tab (ionSelect)="onClickAdd()" tabTitle="" tabIcon="ios-add-outline" id="tabsController-tab5"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Contacts" tabIcon="contact" id="tabsController-tab2"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="Notifications" tabIcon="notifications-outline" id="tabsController-tab3" tabBadge='2' tabBadgeStyle="danger"></ion-tab>
+</ion-tabs>

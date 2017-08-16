@@ -1,0 +1,26 @@
+<ion-content padding id="page6">
+	<div class="top-space"></div>
+	<!-- <div class="add-new-form">
+		<img src="assets/icon/2.png" />
+		<div class="new-form-item" id="item{{ii}}" *ngFor="let item of addItems; let ii= index;" (click)="onClickNewItem(item)">
+			
+		</div>
+	</div> -->
+
+	<div class="add-new-form">
+		<div class="new-form-item" id="item{{ii}}" *ngFor="let item of addItems; let ii= index;" (click)="onClickNewItem(item)">
+			<div class="item-detail">
+				<ion-icon name="{{item.image}}"></ion-icon>
+				<!-- <p>aaa</p> -->
+			</div>
+			<p class="item-title">{{item.title}}</p>
+			
+		</div>
+	</div>
+
+	<button ion-button icon-only class="close-button" (click)="onCloseModal()">
+		<ion-icon name="ios-close-outline"></ion-icon>
+	</button>
+	
+	
+</ion-content>

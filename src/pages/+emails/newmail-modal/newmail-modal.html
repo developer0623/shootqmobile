@@ -1,0 +1,58 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons start>
+			<button ion-button (click)="onCancel()">
+				Cancel
+			</button>
+		</ion-buttons>
+		<ion-title>Send an Email</ion-title>
+		<ion-buttons end>
+			<button ion-button (click)="onSend()">
+				Send
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content padding-left padding-right>
+	<form class="message-template-form" [formGroup]="form">
+		<ion-row class="mail-header">
+			<ion-col col-auto class="mail-to">
+				To:
+			</ion-col>
+			<ion-col>
+				<ion-input type='text' name="recipients" [(ngModel)]="mainContact.name" [ngModelOptions]="{standalone: true}" readonly='true'>				
+				</ion-input>
+			</ion-col>
+		</ion-row>
+		<ion-row class="mail-header">
+			<ion-col col-auto class="mail-to">
+				Cc/Bcc:
+			</ion-col>
+			<ion-col>
+				<tag-input type='text' name="cc_recipients" formControlName="ccRecipients" theme="'sq'" [onAdding]="createOnAddingCallback()"
+				[placeholder]="'Add Contact'" [secondaryPlaceholder]="'Contacts'">
+					<tag-input-dropdown [autocompleteObservable]="createSuggestContactsCallback()"
+					[appendToBody]="false">
+						<template let-item="item">{{ item.display }} &nbsp;&lt; {{ item.email }}&gt;</template>
+					</tag-input-dropdown>
+				</tag-input>
+			</ion-col>
+		</ion-row>
+		<ion-row class="mail-header">
+			<ion-col col-auto class="mail-to">
+				Subject:
+			</ion-col>
+			<ion-col>
+				<ion-input type="text" formControlName="subject" placeholder="Subject"></ion-input>
+			</ion-col>
+		</ion-row>
+		
+		<ion-textarea class="mail-body" rows="10" name="body" formControlName="body"></ion-textarea>
+		
+
+	</form>
+
+	
+	
+	
+</ion-content>

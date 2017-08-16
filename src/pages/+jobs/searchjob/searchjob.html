@@ -1,0 +1,27 @@
+<ion-content padding>
+    <div class="spacer" style="height:10px;" id="page-spacer1"></div>
+	  <div class="job-search">  		  
+    	<ion-searchbar placeholder="Search Jobs" name="" (ionInput)='onInput($event)' [(ngModel)] ='searchData' [ngModelOptions]="{standalone: true}"  class="input-search"></ion-searchbar>
+      <button ion-button class="cancel-button" (click)="cancelSearch()">Cancel</button>
+    </div>
+
+
+    <ion-list *ngIf="!searchData" class="recent-jobs">
+      <p class="recent-title" *ngIf="recentJobs.length">Recently Searched Jobs</p>
+      <p class="recent-no-job" *ngIf="!recentJobs.length">There are no Recently Searched Jobs</p>
+      <job-item *ngFor="let job of recentJobs" [job]="job" [itemType]= 'true' (onClickItem)="gotoJobDetail($event)">
+          
+      </job-item>
+    </ion-list>
+
+    <ion-list *ngIf="searchData" class="search-list-jobs">
+        <job-item *ngFor="let job of searchedJobs" [job]="job" [itemType]= 'false' (onClickItem)="gotoJobDetail($event)" >
+          
+      </job-item>
+    </ion-list>
+  
+
+
+
+
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-card *ngIf = "itemType">
+  <ion-item  class="job-item" (click)="onClick()" >
+    
+    <ion-list class="job-type" [ngStyle]="{'background-color': jobItem.custom_type.color}" item-left>
+      <p class='job-type-title'>{{jobItem.custom_type.title}}</p>
+      <p class="job-type-detail">{{jobItem.custom_type.content}}</p>
+    </ion-list>
+    <ion-list>
+      <p class="job-title">{{jobItem.name}}</p>
+      <p class="job-date">{{jobItem.created | date:'fullDate'}}</p>
+      <p class="job-subtask">20 subtasks</p>
+    </ion-list>
+  </ion-item>
+
+
+
+</ion-card>
+<ion-item  class="job-searched-item"  (click)="onClick()" *ngIf = "!itemType">
+  
+    <div class="job-mark" [ngStyle]="{'background-color': jobItem.custom_type.color}" item-left>{{jobItem.custom_type.title}}</div>
+  
+  {{jobItem.name}}
+            
+</ion-item>

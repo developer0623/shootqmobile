@@ -1,0 +1,77 @@
+page-feed-settings {
+	// ion-content{
+	// 	padding: 16px 0px !important; 
+	// 	.scroll-content {
+	// 	    padding: 16px 0px !important;
+	// 	}
+	// }
+	color: #3a405b;
+
+	.toggle-list{
+		.toggle-list-title {
+			font-size: $content-big-font;
+			font-weight: bold;
+			color: #3a405b;
+		}
+		.toggle-list-content{
+			border-bottom: 1px solid rgba(58, 64, 91, 0.2);
+			ion-label{
+				font-size: $content-medium-font;
+				color: #3a405b;
+			}
+			ion-toggle{
+				margin-right: 5px;
+			}
+
+			.toggle-ios {
+				height: 24px;
+				width: 43px;
+			}
+			.toggle-inner{
+				height: 20px;
+				width: 20px;
+			}
+		}		
+	}
+
+	.assign-list{
+		margin-top: 20px;
+		.assign-list-title{
+			font-size: $content-big-font;
+			font-weight: bold;
+			color: #3a405b;
+		}
+
+		.assign-item{
+			margin-bottom: 10px;
+			.contact-title{
+				font-size: $content-big-font;
+				color: $title-font-color;
+			}
+			.contact-type{
+				font-size: $content-medium-font;
+				color: rbga(58, 64, 91, 0.5);
+			}
+		}
+		ion-card{
+			position:relative;
+		
+			.toggle-ios {
+				height: 24px;
+				width: 43px;
+			}
+			.toggle-inner{
+				height: 20px;
+				width: 20px;
+			}
+		}
+		.assign-item-toggle{
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+
+		}
+	}
+
+	
+}

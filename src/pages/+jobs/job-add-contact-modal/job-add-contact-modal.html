@@ -1,0 +1,43 @@
+
+<ion-content class="job-contact-modal">
+<div class="modal-content">
+	<h4 class="modal-header">
+    	Add a Contact to this Job
+  	</h4>
+  	<div class="modal-icon">
+  		<ion-icon name="ios-person-outline"></ion-icon>
+  	</div>
+  
+	  <div class="show-list-numbers-and-dots">
+	    <p>
+	      Would you like to add an search for an
+	      <strong>
+	        existing contact
+	      </strong>
+	      or
+	      <strong>
+	        create a new contact?
+	      </strong>
+	    </p>
+	  </div>
+	  <button class="modal-button" ion-button  block (click)="onJobContactList()">
+	    Search Contacts
+	  </button>
+	  <button class="modal-button" ion-button  block (click)="onJobNewContact()">
+	    Create a New Contact
+	  </button>
+	  <button class="cancel-button" ion-button (click)="onClickClose()">
+	    Cancel
+	  </button>
+</div>	
+</ion-content>
+
+
+
+
+
+
+
+
+
+

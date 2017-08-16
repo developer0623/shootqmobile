@@ -1,0 +1,82 @@
+group-events {
+	.eventgroup-item {
+				margin-bottom: 5vw !important;
+				position: relative;
+				// display: flex;
+				// display: -webkit-flex;
+				.eventgroup-item-content{
+					.timeline-circle{
+						padding: 0px !important;
+						width: 12vw !important;
+						max-width: 12vw;
+						// max-width: 50px !important;
+						display: flex;
+						display: -webkit-flex;
+						justify-content: center;
+						.circle-item {
+							width: 5vw;
+							height: 5vw;
+							background-color: #086AFF;
+							margin-top: 5vw;
+							// margin-left: 10px;
+							border-radius: 50%;
+						}
+						.start-circle{
+							background-color: #50d166;
+						}
+
+						.end-circle {
+							background-color: #e94e4c;
+						}
+					}
+
+					.timeline-content {
+						padding-right: 0px;
+						ion-list{
+							padding-bottom: 1vw;
+							border-radius: 1vw;
+							box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.09);
+
+						}
+						ion-item{
+							border: none !important;
+							padding-left: 1vw;
+							min-height: 0px !important;
+
+							ion-icon {
+								font-size: $content-big-font;
+								min-height: 0px !important;
+								margin-top: 2vw !important;
+								margin-bottom: 2vw !important;
+								margin-right: 2vw !important;
+								color: #3A405B;
+							}
+							span {
+								font-weight: bold;
+							}
+							ion-label {
+								font-size: $content-small-font;
+								margin-top: 5px !important;
+								margin-bottom: 5px !important;
+								color: #3A405B;
+								white-space: initial;
+							}
+						}
+					}
+				}
+			}
+
+			.eventgroup-item:before{
+				content:'';
+				width: 2px;
+				background: #b6c1cf;
+				position: absolute;
+				left: calc(6vw - 1px);
+				left: -webkit-calc(6vw - 1px);
+				height: calc(100% - 21vw);
+				height: -webkit-calc(100% - 21vw);
+				top: 7vw;
+				// z-index: 100;
+			}
+
+}

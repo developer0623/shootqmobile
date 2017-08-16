@@ -1,0 +1,44 @@
+
+<ion-content padding id="page6">
+  <ion-item class="new-contact-header">
+    <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>            
+    Due Date
+    <button ion-button item-right class="done-class" (click)="onClickDone()">Done</button>
+  </ion-item>
+	<calendar 
+			  [eventSource]="eventSource"
+              [calendarMode]="calendar.mode"
+              [currentDate]="calendar.currentDate"
+              (onCurrentDateChanged)="onCurrentDateChanged($event)"
+              (onEventSelected)="onEventSelected($event)"
+              (onTitleChanged)="onViewTitleChanged($event)"
+              (onTimeSelected)="onTimeSelected($event)"
+              step="30">
+    </calendar>
+
+    <div *ngIf="eventFlag">
+      <ion-item *ngIf="timeEvFlag">
+        <ion-label fixed>Start Time</ion-label>
+        <ion-datetime placeholder='Select Time' displayFormat="hh:mm A" pickerFormat="hh:mm A" [(ngModel)]='startTime'></ion-datetime>
+      </ion-item>
+      <ion-item *ngIf="timeEvFlag">
+        <ion-label fixed>End Time</ion-label>
+        <ion-datetime placeholder='Select Time' ddisplayFormat="hh:mm A" pickerFormat="hh:mm A" [(ngModel)]='endTime'></ion-datetime>
+      </ion-item>
+
+      <div class="time-event" (click)="onClickTimeEv()">{{timeEvTitle}}</div>
+    </div>
+
+    <div *ngIf="!eventFlag">
+      <ion-item>
+        <ion-label fixed>Select Time</ion-label>
+        <ion-datetime placeholder='Select Time' displayFormat="hh:mm A" pickerFormat="hh:mm A" [(ngModel)]='selectTime'></ion-datetime>
+      </ion-item>
+    </div>
+    <!-- <ion-item>
+      <ion-label fixed>End Time</ion-label>
+      <ion-datetime placeholder='Select Time' displayFormat="HH:mm" pickerFormat="HH:mm"></ion-datetime>
+    </ion-item> -->
+	
+	
+</ion-content>

@@ -1,0 +1,39 @@
+activity-item {
+  .activity-icon{
+    border: 2px solid $pale-grey;
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+    display:flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .icon-normal {
+    color: $gray-border-dark;
+  }
+
+  .icon-blue {
+    color: #02ad94;
+  }
+  .icon-yellow {
+    color: $squash;
+  }
+
+  .icon-money {
+      color: $dark-mint;
+  }
+
+  .activity-item-content {
+    white-space: normal;
+    font-size: 4vw;
+    color: rgba(58, 64, 91, 1);
+  }
+  .activity-item-date {
+    font-size: 3vw;
+    font-weight: bold;
+    color: rgba(58, 64, 91, 0.7);
+  }
+}

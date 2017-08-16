@@ -1,0 +1,58 @@
+page-contact-settings {
+	// ion-content{
+	// 	padding: 16px 0px !important; 
+	// 	.scroll-content {
+	// 	    padding: 16px 0px !important;
+	// 	}
+	// }
+	color: #3a405b;
+
+	.new-contact-header{
+		background-color: transparent;
+		border-bottom: 1px solid rgba(58, 64, 91, 0.1);
+		.item-inner{
+		text-align: center;
+			border-bottom: 0px !important;
+		}
+
+		ion-label{
+			color: $title-font-color;
+			font-size: $content-big-font;
+			font-weight: 600;
+		}
+
+		ion-icon{
+			font-size: $title-big-font;
+			color: #3a405b;
+		}
+	}	
+
+	.toggle-list{
+		.toggle-list-title {
+			font-size: $content-big-font;
+			font-weight: bold;
+			color: #3a405b;
+		}
+		.toggle-list-content{
+			border-bottom: 1px solid rgba(58, 64, 91, 0.2);
+			ion-label{
+				font-size: $content-medium-font;
+				color: #3a405b;
+			}
+			ion-toggle{
+				margin-right: 5px;
+			}
+
+			.toggle-ios {
+				height: 24px;
+				width: 43px;
+			}
+			.toggle-inner{
+				height: 20px;
+				width: 20px;
+			}
+		}		
+	}
+
+	
+}

@@ -1,0 +1,76 @@
+
+<ion-content padding id="contact-note-page">
+	<ion-item class="new-contact-header">
+            <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>
+            {{contact.id? 'Change Contact': 'Create Contact'}}
+            
+    </ion-item>
+	<form  class="contact-form" [formGroup]="form">
+		<ion-item *ngIf="jobflag">
+		      <ion-label stacked>Select Role</ion-label>
+		      <ion-select name="" placeholder='Select Role' interface='popover' [(ngModel)] ='selectedRole' [ngModelOptions]="{standalone: true}">
+		        <ion-option *ngFor="let role of jobRoles" value='{{role.id}}'>{{role.name}}</ion-option>
+		      </ion-select>
+		</ion-item>
+	    
+	    <ion-item>
+	      <ion-label stacked [ngClass]="{'val-required': validFlags && form.controls.firstName.errors }">First Name<span class="icon-required">*</span></ion-label>
+	      <ion-input type="text" placeholder="First Name"  formControlName="firstName"></ion-input>
+	    </ion-item>
+	    <ion-item>
+	      <ion-label stacked [ngClass]="{'val-required': validFlags && form.controls.lastName.errors }">Last Name<span class="icon-required">*</span></ion-label>
+	      <ion-input type="text" placeholder="Last Name"  formControlName="lastName"></ion-input>
+	    </ion-item>
+	    <ion-item>
+	      <ion-label stacked>Email</ion-label>
+	      <ion-input type="email" placeholder="Email"  formControlName="email"></ion-input>
+	    </ion-item>
+	    <ion-item>
+	      <ion-label stacked>Phone number</ion-label>
+	      <ion-input type="tel" placeholder="Phone"  formControlName="phone"></ion-input>
+	    </ion-item>
+
+	    <div class="address-item">		    
+			    <div class="address-label">Address, City State & Zip</div>
+			    <input type="text" class="address-input"   (setAddress)="getAddress($event)" googleplace  formControlName="postalAddress"/>
+		</div>
+	    <ion-item class="important-date">
+	      <p>Important Dates</p>
+	    </ion-item>
+	    <ion-item>
+	    	<ion-label stacked>Birthday</ion-label>
+	    	<ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM YYYY DD" formControlName="birthday" min="1950" max="2022"></ion-datetime>
+	    </ion-item>
+
+	    <ion-item>
+	    	<ion-label stacked>Anniversary</ion-label>
+	    	<ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MMM YYYY DD" formControlName="anniversary" min="1950" max="2022"></ion-datetime>
+	    </ion-item>
+	    <!-- <div class="date-wrapper">
+			    <ion-item>
+			      <ion-label stacked>Birthday</ion-label>
+			      <ion-input *ngIf="birthDate" value = "{{birthDate | date: 'mediumDate'}}"></ion-input>
+			    </ion-item>
+			    <button class="date-button" (click)="onClickStart()"></button>
+		</div>
+
+		    <div class="date-wrapper">
+			    <ion-item>
+			      <ion-label stacked>Anniversary</ion-label>
+			      <ion-input *ngIf = "anniversaryDate" value = "{{anniversaryDate | date: 'mediumDate'}}"></ion-input>
+			    </ion-item>
+			    <button class="date-button" (click)="onClickEnd()"></button>		    	
+		    </div> -->
+	<button (click)="onSave()" class="save-bt">SAVE</button>
+  </form>
+</ion-content>
+
+
+
+
+
+
+
+
+
+

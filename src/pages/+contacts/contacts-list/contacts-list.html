@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle class="menu-button">
+              <profile-img src="{{userphoto}}"></profile-img>
+    </button>
+    Contacts({{contactCount}})
+    <ion-buttons end>
+      <button ion-button (click)="onClickSetting()" class="navbar-option-img">
+        <img src="assets/icon/options.png"/>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="main-content">
+  <!-- <ion-item color="light" class="contact-header">
+            <ion-avatar item-left (click)="onClickProfile()">
+              <img src="{{userphoto}}"/>
+            </ion-avatar>
+            <h2>
+              Contacts({{contactCount}})
+            </h2>
+
+            <ion-avatar item-right (click)="onClickSetting()">
+              <img src="assets/slideimage/img.png"/>
+            </ion-avatar>
+    </ion-item> -->
+	<div class="job-search">  		  
+    	<ion-searchbar placeholder="Search Contacts" name="" (ionInput)='onInput($event)' [(ngModel)] ='searchData' [ngModelOptions]="{standalone: true}"  class="input-search"></ion-searchbar>
+      <button ion-button class="cancel-button" (click)="cancelSearch()">Cancel</button>
+  </div>
+  <ion-content class="sub-content" >
+	
+	  <ion-alpha-scroll *ngIf="contacts && !searchData"
+        [listData]="contacts"
+        key="last_name"
+        [itemTemplate]="alphaScrollItemTemplate"
+        [currentPageClass]="currentPageClass"
+        [triggerChange]="triggerAlphaScrollChange">
+    </ion-alpha-scroll>
+  
+
+    <ion-list *ngIf="searchData" class="search-list-contacts">
+        <ion-item  class="job-item" *ngFor="let item of searchedcontacts" (click) = "gotoContactDetail(item)">
+	      <p class="contact-list-title">{{item.full_name}}</p>
+	      <p class="contact-list-content">Client</p>            
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-content>

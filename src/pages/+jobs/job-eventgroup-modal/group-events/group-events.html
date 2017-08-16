@@ -1,0 +1,59 @@
+
+		<ion-list class="eventgroup-item">
+          <ion-row class="eventgroup-item-content start-item">
+            <ion-col  class="timeline-circle">
+              <div class="circle-item start-circle"></div>
+            </ion-col>
+            <ion-col class="timeline-content">
+              <ion-list>
+                  <ion-item>
+                    <ion-icon item-left name="ios-time-outline"></ion-icon>
+                    <span>{{eventgroup.start | date : 'MMM d, h:mm a'}}</span> {{eventgroup.name}} begins
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon item-left name="ios-pin-outline"></ion-icon>
+                    {{eventgroup.address}}
+                  </ion-item>                
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="eventgroup-item-content" *ngFor="let event of eventgroup.events; let i = index">
+            <ion-col class="timeline-circle">
+              <div class="circle-item content-circle"></div>
+            </ion-col>
+            <ion-col class="timeline-content" (click)="onClickEvent(event, i)">
+              <ion-list>
+                  <ion-item>
+                    <ion-icon item-left name="ios-time-outline"></ion-icon>
+                    <span>{{event.start | date : 'MMM d, h:mm a'}} - {{event.end | date : 'MMM d, h:mm a'}}</span> {{event.name}}
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon item-left name="ios-pin-outline"></ion-icon>
+                    {{event.location? event.location.address1: eventgroup.address}}
+                  </ion-item>                
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row class="eventgroup-item-content end-item">
+            <ion-col class="timeline-circle">
+              <div class="circle-item end-circle"></div>
+            </ion-col>
+            <ion-col class="timeline-content">
+              <ion-list>
+                  <ion-item>
+                    <ion-icon item-left name="ios-time-outline"></ion-icon>
+                    <span>{{eventgroup.end | date : 'MMM d, h:mm a'}}</span> {{eventgroup.name}} ends
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon item-left name="ios-pin-outline"></ion-icon>
+                    {{eventgroup.address}}
+                  </ion-item>                
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+
+        <div class="add-event" (click)="addEventItem()">Add event</div>

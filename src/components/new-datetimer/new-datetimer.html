@@ -1,0 +1,15 @@
+
+<ion-content padding id="page6">
+  <ion-item class="new-contact-header">
+    <ion-icon name="ios-close-outline" item-left (click)="onClickClose()"></ion-icon>            
+    Due Date
+    <button ion-button item-right class="done-class" (click)="onClickDone()">Done</button>
+  </ion-item>
+	<form [formGroup]="reactiveForm">
+    <div class="form-group">
+      <sq-datetimepicker [options]="options" [mode]="'inline'" formControlName='field1'></sq-datetimepicker>
+    </div>
+  </form>
+	
+	
+</ion-content>

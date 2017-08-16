@@ -1,0 +1,15 @@
+select-role-popover {
+	ion-list-header{
+		ion-label{
+			color: $content-font-color !important;
+			font-weight: bold;
+			font-size: 5.2vw !important;
+		}
+		
+	}
+	button {
+		color: $content-font-color !important;
+		font-size: 4.3vw !important;
+	}
+
+}

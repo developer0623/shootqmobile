@@ -1,0 +1,83 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+.menu-content{
+	// .menu-bg{
+	// 	position: absolute;
+	// 	top: -22px;
+	// 	width: 110%;
+	// 	height: calc(100vh + 22px);
+	// 	height: -webkit-calc(100vh + 22px);
+	// 	max-width: 110%;
+	// }
+	background-image: url("../assets/login/menubg.png");
+	background-size: 100% 100%;
+	.menu-space{
+		height: 80px;
+		width: 100%;
+	}
+
+	ion-item{
+		background: transparent;
+	}
+
+	.menu-item {
+		ion-label{
+			color: #ffffff;
+			font-size: 18px;
+			letter-spacing: 1px;
+		}
+		.item-inner{
+			border-bottom: 0px !important;
+		}
+		padding-left: 50px;
+	}
+	.menu-item:last-child{
+		border-bottom: 0px !important;
+	}
+
+	.logout-item{
+		position: fixed;
+		bottom: 40px;
+		ion-label{
+			color: rgba(255,255, 255, 0.6);
+		}
+	}
+
+	.menu-profile-item {
+		.full-name{
+			font-weight: bold;
+			font-size: 18px;
+			color: #ffffff;
+			line-height: 1.5;
+		}
+		.primary-mail{
+			
+			color: rgba(255, 255, 255, 0.6);
+			font-size: 12px;
+		}
+		.item-inner{
+			border-bottom: 0px !important;
+		}
+		profile-img{
+			height: 60px;
+			width: 60px;			
+		}
+		
+	}
+}
