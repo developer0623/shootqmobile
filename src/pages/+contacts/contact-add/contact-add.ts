@@ -71,6 +71,13 @@ export class AddContactModal implements OnInit {
     });
   }
 
+  changeFirstName(value){
+    console.log("firstname", value);
+    this.form.patchValue({
+      firstName: value
+    });
+  }
+
   private setViewValue(contact: Contact) {
     // if (!contact.id || contact === Contact.Empty)
     //   return;

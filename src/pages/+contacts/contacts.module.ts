@@ -18,6 +18,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { GooglePlaceModule  } from '../../directives/google-place';
 
+import { CapitalizeModule } from '../../directives/capitalize';
+
 import { GeneralFunctionsService } from "../../services/general-functions";
 import { AccessService } from "../../services/access";
 import { ContactService } from "../../services/contact";
@@ -48,6 +50,7 @@ import { ActivityService } from '../../services/activity/activity.service';
     NgProfileImgModule,
     NgJobItemModule,
     GooglePlaceModule,
+    CapitalizeModule,
     IonicModule    
   ],
   bootstrap: [IonicApp],

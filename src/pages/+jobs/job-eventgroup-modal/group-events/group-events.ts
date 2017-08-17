@@ -3,6 +3,8 @@ import { NavController, ModalController, NavParams, Content, LoadingController, 
 import { EventGroup } from '../../../../models/event-group';
 import { EventService } from '../../../../services/event';
 import { EventModalComponent } from "../event-modal/event-modal";
+
+
 import * as _ from 'lodash';
 import moment from 'moment';
 

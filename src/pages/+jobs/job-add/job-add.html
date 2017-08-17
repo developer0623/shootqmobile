@@ -30,7 +30,7 @@
 
 		    <ion-item formGroupName="main_event_group" *ngIf="!job.id">
 		      <ion-label stacked>Job Location Name</ion-label>
-		      <ion-input type="text" placeholder="Job Location Name" formControlName="location_name"></ion-input>
+		      <ion-input type="text" placeholder="Job Location Name" formControlName="location_name" class="text-capitialize" capitalize></ion-input>
 		    </ion-item>
 
 		    <div class="address-item" formGroupName="main_event_group" *ngIf="!job.id">		    

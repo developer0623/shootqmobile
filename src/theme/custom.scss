@@ -59,7 +59,13 @@ $yellow-orange: #f9af00;
         padding-bottom: 0px !important;
             box-shadow: none !important;
 }
+.text-capitialize {
+    text-transform: capitalize !important;
 
+    .text-input {
+        text-transform: capitalize !important;
+    }
+}
 
 ion-select{
     width: 100%;

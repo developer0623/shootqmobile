@@ -17,6 +17,9 @@ import { EventModalComponent } from "./job-eventgroup-modal/event-modal/event-mo
 
 import { NgJobItemModule } from "../../components/job-item";
 import { NgProfileImgModule } from '../../components/profile-img';
+
+import { CapitalizeModule } from '../../directives/capitalize';
+import { CapitalizePipeModule } from '../../pipes/capitalize';
 // import { DropdownSelectModule } from '../../components/dropdown-select';
 import { AutoCompleteModule } from "ionic2-auto-complete";
 /* Modules */
@@ -63,6 +66,8 @@ import {ConstData} from "../../services/const";
     NgProfileImgModule,
     AutoCompleteModule,
     GooglePlaceModule,
+    CapitalizeModule,
+    CapitalizePipeModule,
     IonAlphaScrollModule,
     // DropdownSelectModule,
     BrowserModule,

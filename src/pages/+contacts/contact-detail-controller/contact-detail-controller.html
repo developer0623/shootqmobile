@@ -24,7 +24,7 @@
 </ion-header>
 <ion-content>
   <div class="contact-content" *ngIf="!profileEditFlag" (click)="onClickProfileImg()">
-    <p class="contact-name">{{contact.fullName}}</p>
+    <p class="contact-name text-capitialize">{{contact.fullName}}</p>
   </div>
   
   <div class="contact-content1" *ngIf="profileEditFlag && authorized" >
@@ -46,7 +46,7 @@
     </ion-row>
       
     <div (click)="onClickProfileImg()">
-      <p class="contact-name">{{contact.fullName}}</p>
+      <p class="contact-name text-capitialize">{{contact.fullName}}</p>
     </div>
   </div>
   <div class="contact-events">    
