@@ -5,6 +5,7 @@ import { NavController, ModalController, LoadingController} from 'ionic-angular'
 import { TaskMarkModal } from "../../+tasks/task-mark-modal/task-mark-modal";
 import { CalendarModalPage } from "../../../components/calendar-modal/calendar-modal";
 import { FeedSettingModal } from '../feed-settings/feed-settings';
+import { JobDetailPage } from "../../+jobs/job-detail-controller/job-detail-controller";
 
 import { EventGroup } from '../../../models/event-group';
 import { EventGroupService } from '../../../services/event-group';
@@ -25,7 +26,13 @@ export class DashboardPage implements OnInit{
   public showOverudeTaskFlag: boolean = false;
   public weekName = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   public today = new Date();
-  public dateIndex = -4;
+  // public dateIndex = -4;
+
+  public dateIndex = -16;
+
+  tabbarElement: any;
+
+  firstEnterFlag: boolean = false;
 
 
 
@@ -37,6 +44,7 @@ export class DashboardPage implements OnInit{
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, private eventGroupService: EventGroupService, private loadingCtrl: LoadingController) {
     let userInfo = JSON.parse(localStorage.getItem('currentUser'));
+    
     if(userInfo.user_profile){
       this.userphoto = userInfo.user_profile.avatar;
     } else {
@@ -49,6 +57,17 @@ export class DashboardPage implements OnInit{
   ngOnInit() {
     this.makingSchedule();
     
+  }
+
+  ionViewDidEnter(){
+    this.firstEnterFlag = true;
+    this.tabbarElement = document.querySelector('.tabbar.show-tabbar');
+    this.tabbarElement.style.display = 'flex';
+  }
+
+  ionViewWillEnter(){
+    if(this.firstEnterFlag)
+    this.tabbarElement.style.display = 'flex';
   }
 
   gettingTasks(){
@@ -65,7 +84,7 @@ export class DashboardPage implements OnInit{
     // console.log("newdate", centerDate);
     for(var ii=0; ii< 7; ii++){
       let newDate = new Date();
-      newDate.setDate(this.today.getDate() + this.dateIndex + ii);
+      newDate.setDate(this.today.getDate() + this.dateIndex + 13 + ii);
       let weekitem = {name: this.weekName[newDate.getDay()], Day: newDate.getDate()};
       this.weeklist.push(weekitem);
     }
@@ -111,12 +130,41 @@ export class DashboardPage implements OnInit{
     modal1.present();
   }
 
-  swiped(event){
-    if(event.direction == 2){
-      this.swipeLeft();
-    } else if(event.direction == 4){
-      this.swipeRight();
-    }   
+  // swiped(event){
+  //   if(event.direction == 2){
+  //     this.swipeLeft();
+  //   } else if(event.direction == 4){
+  //     this.swipeRight();
+  //   }   
+
+  // }
+
+  // swipeLeft(){
+  //   this.dateIndex ++; 
+  //   this.getWeekbar();
+  //   this.makingSchedule();
+  // }
+
+  // swipeRight(){
+  //   this.dateIndex --; 
+  //   this.getWeekbar();
+  //   this.makingSchedule();
+  // }
+
+
+  openCalendar(){
+
+    let calendar = this.modalCtrl.create(CalendarModalPage);
+    calendar.onDidDismiss(data=>{
+      if(data){
+        console.log("data", data);
+        this.today = data.selectedDate;
+        this.getWeekbar();
+        this.makingSchedule();
+      }
+      
+    });
+    calendar.present();
 
   }
 
@@ -126,7 +174,7 @@ export class DashboardPage implements OnInit{
     startDate.setHours(0);
 
     let endDate = new Date();
-    endDate.setDate(this.today.getDate() + this.dateIndex + 6);
+    endDate.setDate(this.today.getDate() + this.dateIndex + 30);
     endDate.setHours(23);
     this.updateEventGroupFilter({
       from_date: moment(startDate),
@@ -135,17 +183,7 @@ export class DashboardPage implements OnInit{
 
   }
 
-  swipeLeft(){
-    this.dateIndex ++; 
-    this.getWeekbar();
-    this.makingSchedule();
-  }
-
-  swipeRight(){
-    this.dateIndex --; 
-    this.getWeekbar();
-    this.makingSchedule();
-  }
+  
 
 
 
@@ -192,6 +230,11 @@ export class DashboardPage implements OnInit{
         }
       });
     });
+  }
+
+  gotoJob(jobid){
+    this.tabbarElement.style.display = 'none';
+    this.navCtrl.push(JobDetailPage, {jobid: jobid});
   }
   
 }

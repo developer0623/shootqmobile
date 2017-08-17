@@ -43,7 +43,7 @@ const DEFAULT_MAX_WORDS_COUNT = 40;
 export class JobDetailPage implements OnDestroy{
   public segmentname: string = 'overview';
 
-  public job: Job;
+  public jobid: any;
   public backFlag: boolean = false;
   public isLoading: boolean = false;
   public detailedJob: Job;
@@ -60,7 +60,8 @@ export class JobDetailPage implements OnDestroy{
     private events: Events,  private alertCtrl: AlertController,  private actionSheetCtrl: ActionSheetController, private callNumber: CallNumber,
     private eventGroupService: EventGroupService, private generalFunctions: GeneralFunctionsService, private jobNoteService: JobNoteService,
    public jobListService: JobList, private navParams: NavParams,  private jobService: JobService, private jobContactService: JobContactService) {
-    this.job = this.jobListService.getSelectedJob();
+    // this.job = this.jobListService.getSelectedJob();
+    this.jobid = this.navParams.get('jobid');
     this.backFlag = this.navParams.get('back');
     
     this.getDetailedJob();
@@ -85,7 +86,7 @@ export class JobDetailPage implements OnDestroy{
   }
 
   onEditJob(){
-  	let editModal = this.modalCtrl.create(AddJobModal, {jobId: this.job.id});
+  	let editModal = this.modalCtrl.create(AddJobModal, {jobId: this.jobid});
   	editModal.onDidDismiss(data=>{
       // if(data.refresh)
       // this.navCtrl.push(JobDetailPage);
@@ -100,7 +101,7 @@ export class JobDetailPage implements OnDestroy{
   getDetailedJob(){
     let loading = this.loadingCtrl.create();
     loading.present();
-    this.jobService.get(this.job.id)
+    this.jobService.get(this.jobid)
     .subscribe(
       jobData => {
         this.isLoading = true;
@@ -389,7 +390,7 @@ export class JobDetailPage implements OnDestroy{
   }
 
   private saveNote(data: BaseNote, index) {
-    let note = new JobNote(data.id, data.subject, data.body, this.job.id);
+    let note = new JobNote(data.id, data.subject, data.body, this.jobid);
     let isNewObject = !note.id;
     let request = isNewObject ? this.jobNoteService.create(note) :
         this.jobNoteService.update(note.id, note);
@@ -411,7 +412,7 @@ export class JobDetailPage implements OnDestroy{
 
    private getJobNotes(): Observable<any> {
     // this.notesLoading = true;
-    let result = this.jobNoteService.getListByJob(this.job.id);
+    let result = this.jobNoteService.getListByJob(this.jobid);
     //noinspection JSIgnoredPromiseFromCall
     result.takeUntil(this.destroyed)
       .subscribe(

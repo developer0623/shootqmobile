@@ -111,10 +111,10 @@ export class JobsPage implements OnInit {
     // this.jobTypeService.setJobCustomType(this.jobCustomType);
   // }
 
-  gotoJobDetail(event){
+  gotoJobDetail(event, jobid){
     console.log("eventemitter", event);
     this.tabbarElement.style.display = 'none';    
-    this.navCtrl.push(JobDetailPage);
+    this.navCtrl.push(JobDetailPage, {jobid: jobid});
   }
 
   gotoSearchJob(){

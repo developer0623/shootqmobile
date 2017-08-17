@@ -31,7 +31,7 @@
     </div>
 
     <ion-list>
-      <job-item *ngFor="let job of jobs" [job]="job" [itemType]= 'true' (onClickItem)="gotoJobDetail($event)" >
+      <job-item *ngFor="let job of jobs" [job]="job" [itemType]= 'true' (onClickItem)="gotoJobDetail($event, job.id)" >
           
       </job-item>
       <!-- <ion-card *ngFor="let job of jobs" (click)="gotoJobDetail(job)">

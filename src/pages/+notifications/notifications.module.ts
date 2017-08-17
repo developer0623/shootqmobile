@@ -7,7 +7,7 @@ import { NotificationSettingModal} from './notification-settings/notification-se
 /* Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgProfileImgModule } from '../../components/profile-img';
-
+import { NgActivityFeeedModule } from "../../components/activity-feed";
 
 
 
@@ -21,6 +21,7 @@ import { NgProfileImgModule } from '../../components/profile-img';
   imports: [
     BrowserModule,
     NgProfileImgModule,
+    NgActivityFeeedModule,
     IonicModule
     
   ],

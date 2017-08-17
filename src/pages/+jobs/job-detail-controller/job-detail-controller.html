@@ -28,7 +28,7 @@
   <div [ngSwitch]="selectedSegment" *ngIf="isLoading">
     <div class="segment-content segment-overview" *ngSwitchCase="'overview'" >
 	    
-      <ion-list class="contact-card">
+      <ion-list class="contact-card" *ngIf="detailedJob.primaryContact">
           <ion-item-sliding>
              <ion-item  class="contact-item">
                 <contact-img [name] = "detailedJob.primaryContact.name" [id]="detailedJob.primaryContact.contact" item-left></contact-img>
@@ -131,15 +131,15 @@
             <div item-right class="new-contact-button" (click)="onClickNewContact()">ADD A CONTACT</div>
             All Contacts ({{detailedJob.job_contacts.length}})
           </ion-item>
-          <ion-list class="contact-card" *ngFor="let contact of detailedJob.job_contacts; let i = index;">
+          <ion-list class="contact-card" *ngFor="let contact of detailedJob.job_contacts;" >
             <ion-item-sliding  *ngIf="contact.contact != detailedJob.primaryContact.contact">
-               <ion-item  class="contact-item">
+              <ion-item  class="contact-item">
                   <contact-img [name] = "contact.name" [id]="contact.contact" item-left></contact-img>
                   <ion-list>
                     <p class="contact-name">{{contact.name}}</p>
-                    <p class="contact-role">{{contact.roles[0].name}}</p>
+                    <p class="contact-role" *ngIf="contact.roles.length>0">{{contact.roles[0].name}}</p>
                   </ion-list>
-                </ion-item>
+              </ion-item>
               <ion-item-options side="right">
                 <button ion-button icon-only class="no-items">
                 </button>
@@ -163,6 +163,44 @@
            
           </ion-list>
         </div>
+
+        <!-- <div class="contact-section" *ngIf="!detailedJob.primaryContact">
+          <ion-item class="contact-section-header">
+            <div item-right class="new-contact-button" (click)="onClickNewContact()">ADD A CONTACT</div>
+            All Contacts ({{detailedJob.job_contacts.length}})
+          </ion-item>
+          <ion-list class="contact-card" *ngFor="let contact of detailedJob.job_contacts;" >
+            <ion-item-sliding>
+              <ion-item  class="contact-item">
+                  <contact-img [name] = "contact.name" [id]="contact.contact" item-left></contact-img>
+                  <ion-list>
+                    <p class="contact-name">{{contact.name}}</p>
+                    <p class="contact-role">{{contact.roles[0].name}}</p>
+                  </ion-list>
+              </ion-item>
+              <ion-item-options side="right">
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items">
+                  <ion-icon name="ios-chatbubbles-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="openPhoneCall(contact)">
+                  <ion-icon name="ios-phone-portrait"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+                <button ion-button icon-only class="button-items" (click)="openEmailModal(contact)">
+                  <ion-icon name="ios-mail-outline"></ion-icon>
+                </button>
+                <button ion-button icon-only class="no-items">
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+           
+          </ion-list>
+        </div> -->
 
     </div>
 
