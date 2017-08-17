@@ -16,6 +16,8 @@ export class ActivityFeedComponent {
   isLoading: boolean = false;
   feed: any[] = [];
 
+  feedCount: number = 10;
+
   constructor(
     private vcRef: ViewContainerRef,
     private activityService: ActivityService,
@@ -48,20 +50,20 @@ export class ActivityFeedComponent {
       );
   }
 
-  seeAll() {
-    // let config = overlayConfigFactory({
-    //   activities: this.feed,
-    //   showTargetMeta: this.showTargetMeta
-    // }, ActivitiesModalWindowData);
-    // config.viewContainer = this.vcRef;
-    // this.modal
-    //   .open(ActivitiesModalComponent, config)
-    //   .then(dialogRef => {
-    //     dialogRef.result
-    //       .then(result => {})
-    //       .catch(() => {});
-    //   });
+  doInfinite(infiniteScroll){
+    if(this.feedCount+10 < this.feed.length){
+      this.feedCount+=10;
+    } else {
+      this.feedCount = this.feed.length;
+    }
+    setTimeout(function(){
+      infiniteScroll.complete();
+    }, 500);
+
+    
   }
+
+  
 
 
 }

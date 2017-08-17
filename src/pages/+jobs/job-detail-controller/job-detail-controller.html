@@ -35,7 +35,7 @@
                 <ion-list>
                   <p class="primary-contact">PRIMARY CONTACT</p>
                   <p class="contact-name">{{detailedJob.primaryContact.name}}</p>
-                  <p class="contact-role">{{detailedJob.primaryContact.roles[0].name}}</p>
+                  <p class="contact-role" *ngIf="detailedJob.primaryContact.roles.length>0">{{detailedJob.primaryContact.roles[0].name}}</p>
                 </ion-list>
               </ion-item>
             <ion-item-options side="right">
